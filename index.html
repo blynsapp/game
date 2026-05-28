@@ -14,7 +14,7 @@
     <link rel="manifest" href="/site.webmanifest">
 
     <!-- Theme Color -->
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#0ea5e9">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>BLYNS 3.6 | Rangkaian Kewangan & Sosial Ceria</title>
@@ -69,6 +69,27 @@
             background: #94a3b8;
         }
 
+        /* Animated Smooth Gradient Backgrounds */
+        .animated-bg-gradient {
+            background: linear-gradient(-45deg, #0ea5e9, #3b82f6, #6366f1, #10b981);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         .glass-panel {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
@@ -113,6 +134,41 @@
         .animate-ping-slow {
             animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
         }
+
+        /* Header Hide/Show Transition */
+        #mobile-header {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .header-hidden {
+            transform: translateY(-100%);
+        }
+
+        /* Interactive Animations on Hover & Active */
+        .btn-hover-bounce {
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+        }
+
+        .btn-hover-bounce:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-hover-bounce:active {
+            transform: scale(0.95);
+        }
+
+        /* Glow effects */
+        .glow-sky:hover {
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.4);
+        }
+
+        .glow-emerald:hover {
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .glow-purple:hover {
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+        }
     </style>
 </head>
 
@@ -120,6 +176,7 @@
 
     <audio id="sound-pop" src="https://actions.google.com/sounds/v1/water/water_drop.ogg" preload="auto"></audio>
 
+    <!-- GLOBAL LOADER -->
     <div id="global-loader" class="fixed inset-0 z-[200] bg-white flex flex-col items-center justify-center transition-opacity duration-300">
         <div class="relative w-24 h-24 flex items-center justify-center">
             <i class="fa-solid fa-cloud text-sky-200 text-6xl absolute"></i>
@@ -128,8 +185,10 @@
         <p id="loader-text" class="text-sm font-heading font-bold text-sky-600 mt-6 animate-pulse">Menjana Sistem BLYNS 3.6...</p>
     </div>
 
+    <!-- TOAST CONTAINER -->
     <div id="toast-container" class="fixed top-6 right-6 z-[150] flex flex-col gap-3 w-80 pointer-events-none"></div>
 
+    <!-- NOTIFICATION DROPDOWN -->
     <div id="notif-dropdown" class="fixed top-20 left-4 md:left-[300px] w-72 bg-white rounded-2xl shadow-2xl border border-slate-100 hidden flex-col overflow-hidden text-sm z-[110]">
         <div class="p-4 border-b border-slate-100 font-heading font-bold text-slate-800 flex items-center justify-between gap-2">
             <div><i class="fa-solid fa-bell text-sky-500 mr-1"></i> Pemberitahuan</div>
@@ -140,6 +199,7 @@
         </div>
     </div>
 
+    <!-- MODAL: PIN SETUP & VERIFY -->
     <div id="pin-modal" class="fixed inset-0 z-[140] bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="w-full max-w-sm bg-white p-8 rounded-3xl soft-shadow text-center space-y-5 shadow-2xl">
             <div class="w-16 h-16 rounded-full bg-sky-100 flex items-center justify-center mx-auto text-sky-600 text-2xl">
@@ -155,6 +215,7 @@
         </div>
     </div>
 
+    <!-- MODAL: CUSTOM CONFIRM -->
     <div id="custom-confirm-modal" class="fixed inset-0 z-[150] bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="w-full max-w-sm bg-white p-8 rounded-3xl text-center shadow-2xl space-y-5 scale-95 transition-transform duration-200" id="confirm-modal-box">
             <div class="w-16 h-16 rounded-full bg-rose-100 flex items-center justify-center mx-auto text-rose-500 text-3xl mb-2">
@@ -169,6 +230,7 @@
         </div>
     </div>
 
+    <!-- MODAL: CUSTOM PROMPT (Teks/Password) -->
     <div id="custom-prompt-modal" class="fixed inset-0 z-[150] bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="w-full max-w-sm bg-white p-8 rounded-3xl text-center shadow-2xl space-y-5 scale-95 transition-transform duration-200" id="prompt-modal-box">
             <div class="flex justify-between items-center mb-2">
@@ -181,6 +243,7 @@
         </div>
     </div>
 
+    <!-- MODAL: KEPUTUSAN PELABURAN -->
     <div id="investment-result-modal" class="fixed inset-0 z-[140] bg-slate-900/80 backdrop-blur-md hidden flex items-center justify-center p-4">
         <div class="w-full max-w-sm bg-white p-8 rounded-3xl text-center shadow-2xl space-y-4">
             <div id="inv-icon" class="w-20 h-20 rounded-full bg-emerald-100 text-emerald-500 flex items-center justify-center mx-auto text-4xl mb-2">
@@ -193,7 +256,7 @@
                 <div class="flex justify-between border-t border-slate-200 pt-2"><span>Modal Selepas Caj:</span> <span id="inv-newbase" class="font-bold text-slate-800">RM 0</span></div>
                 <div class="flex justify-between text-emerald-600"><span>Dividen (10%):</span> <span id="inv-dividend" class="font-bold">+ RM 0</span></div>
             </div>
-            <div class="bg-slate-900 text-white p-4 rounded-2xl flex justify-between items-center shadow-md">
+            <div class="bg-slate-900 text-white p-4 rounded-2xl flex justify-between items-center shadow-md animate-pulse">
                 <span class="text-sm">Jumlah Pulangan:</span>
                 <span id="inv-total" class="text-xl font-bold font-heading">RM 0</span>
             </div>
@@ -201,6 +264,7 @@
         </div>
     </div>
 
+    <!-- MODAL: RESIT TRANSAKSI -->
     <div id="receipt-modal" class="fixed inset-0 z-[120] bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="w-full max-w-sm bg-white p-8 rounded-3xl soft-shadow space-y-6 relative overflow-hidden shadow-2xl">
             <div class="absolute -top-10 -right-10 text-9xl text-sky-50 opacity-50"><i class="fa-solid fa-check-circle"></i></div>
@@ -222,6 +286,7 @@
         </div>
     </div>
 
+    <!-- MODAL: QR CODE SCAN/SHOW -->
     <div id="qr-modal" class="fixed inset-0 z-[120] bg-slate-900/80 backdrop-blur-md hidden flex items-center justify-center p-4">
         <div class="w-full max-w-md bg-white p-6 rounded-3xl shadow-2xl">
             <div class="flex justify-between items-center mb-4">
@@ -243,13 +308,14 @@
                     <p class="text-xs text-slate-500 mb-2 font-bold">Kamera Gagal? Masukkan ID Manual:</p>
                     <div class="flex gap-2">
                         <input type="email" id="manual-qr-email" class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-sky-500" placeholder="E-mel rakan...">
-                        <button id="btn-manual-qr" class="bg-sky-500 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md">Cari</button>
+                        <button id="btn-manual-qr" class="bg-sky-500 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md btn-hover-bounce">Cari</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- MODAL: USER/GROUP INFO -->
     <div id="info-modal" class="fixed inset-0 z-[120] bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="w-full max-w-sm bg-white p-6 rounded-3xl soft-shadow text-center space-y-4 relative overflow-hidden">
             <div class="flex justify-end relative z-10"><button onclick="document.getElementById('info-modal').classList.add('hidden')" class="w-8 h-8 flex items-center justify-center bg-slate-100 text-slate-500 rounded-full hover:bg-slate-200"><i class="fa-solid fa-xmark"></i></button></div>
@@ -261,34 +327,36 @@
                     <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Aktif
                 </div>
             </div>
-            <div id="info-stats" class="grid grid-cols-2 gap-3 pt-6 border-t border-slate-100 text-sm relative z-10">
-            </div>
+            <div id="info-stats" class="grid grid-cols-2 gap-3 pt-6 border-t border-slate-100 text-sm relative z-10"></div>
         </div>
     </div>
 
-
+    <!-- ========================================== -->
+    <!-- PORTAL AUTHENTICATION                       -->
+    <!-- ========================================== -->
     <div id="auth-portal" class="fixed inset-0 z-[100] bg-sky-50 flex overflow-hidden">
 
-        <div class="hidden md:flex flex-col justify-between w-1/2 p-16 bg-gradient-to-br from-sky-500 to-blue-600 text-white relative">
+        <!-- Left Banner (Desktop) -->
+        <div class="hidden md:flex flex-col justify-between w-1/2 p-16 text-white relative animated-bg-gradient">
             <div class="absolute inset-0 bg-white/10" style="background-image: radial-gradient(circle at 20px 20px, rgba(255,255,255,0.2) 2px, transparent 0); background-size: 40px 40px;"></div>
             <div class="relative z-10 space-y-6">
                 <div class="flex items-center gap-3">
-                    <i class="fa-solid fa-leaf text-4xl text-sky-200"></i>
+                    <i class="fa-solid fa-leaf text-4xl text-sky-200 animate-bounce"></i>
                     <h1 class="text-5xl font-heading font-black tracking-wider">BLYNS <span class="text-sky-200 text-2xl">v3.6</span></h1>
                 </div>
-                <p class="text-xl font-light leading-relaxed max-w-md">Sistem Rangkaian Kewangan & Sosial yang lebih pantas. Kini dengan kelajuan mesej *Lightning Fast*.</p>
+                <p class="text-xl font-light leading-relaxed max-w-md">Sistem Rangkaian Kewangan & Sosial yang lebih pantas. Kini dengan integrasi notifikasi segera serta paparan estetik dinamik.</p>
                 <div class="flex gap-4 pt-4">
-                    <span class="bg-white/20 px-4 py-2 rounded-full text-sm backdrop-blur-sm"><i class="fa-solid fa-bolt mr-2"></i>Sistem Pantas V3.6</span>
-                    <span class="bg-white/20 px-4 py-2 rounded-full text-sm backdrop-blur-sm"><i class="fa-solid fa-qrcode mr-2"></i>Sokongan QR</span>
+                    <span class="bg-white/20 px-4 py-2 rounded-full text-sm backdrop-blur-sm shadow-inner"><i class="fa-solid fa-bolt mr-2 text-yellow-300"></i>Sistem Pantas V3.6</span>
+                    <span class="bg-white/20 px-4 py-2 rounded-full text-sm backdrop-blur-sm shadow-inner"><i class="fa-solid fa-qrcode mr-2"></i>Sokongan QR</span>
                 </div>
             </div>
             <div class="relative z-10">
-                <img src="https://www.amazingborneo.com/img/sabah-tours/sabah-kota-kinabalu-city-north-borneo-cruises-night.jpg" class="w-full h-64 object-cover rounded-3xl shadow-2xl border-4 border-white/20" alt="Happy Community">
+                <img src="https://img.magnific.com/free-vector/multicultural-people-standing-together_74855-6583.jpg?semt=ais_hybrid&w=740&q=80" class="w-full h-64 object-cover rounded-3xl shadow-2xl border-4 border-white/20 hover:scale-[1.02] transition-transform duration-300" alt="Happy Community">
             </div>
         </div>
 
+        <!-- Right Form -->
         <div class="w-full md:w-1/2 h-full flex flex-col justify-center items-center p-8 bg-white relative overflow-y-auto">
-
             <div class="w-full max-w-md space-y-8 animate-[fadeIn_0.5s_ease-out] py-10">
                 <div class="text-center md:text-left">
                     <h2 class="text-4xl font-heading font-black text-sky-500 md:hidden mb-2">BLYNS.</h2>
@@ -296,7 +364,7 @@
                     <p class="text-sm text-slate-500 mt-2" id="auth-subtitle">Log masuk untuk menyambung sesi anda</p>
                 </div>
 
-                <div class="flex p-1 bg-slate-100 rounded-xl">
+                <div class="flex p-1 bg-slate-100 rounded-xl shadow-inner">
                     <button id="btn-tab-login" class="flex-1 py-2 rounded-lg bg-white text-sky-600 font-bold shadow-sm transition-all">Log Masuk</button>
                     <button id="btn-tab-register" class="flex-1 py-2 rounded-lg text-slate-500 font-bold hover:text-slate-800 transition-all">Daftar Baru</button>
                 </div>
@@ -319,7 +387,7 @@
                             </button>
                         </div>
                     </div>
-                    <button type="submit" class="w-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-3.5 rounded-xl hover:shadow-lg hover:shadow-sky-500/30 transition-all">
+                    <button type="submit" class="w-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-3.5 rounded-xl hover:shadow-lg hover:shadow-sky-500/30 transition-all btn-hover-bounce">
                         Log Masuk
                     </button>
                 </form>
@@ -358,7 +426,7 @@
                             <button type="button" onclick="toggleVisibility('register-confirm')" class="absolute right-4 top-3 text-slate-400 hover:text-sky-500"><i class="fa-regular fa-eye"></i></button>
                         </div>
                     </div>
-                    <button type="submit" class="w-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-3.5 rounded-xl hover:shadow-lg hover:shadow-sky-500/30 transition-all mt-4">
+                    <button type="submit" class="w-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-3.5 rounded-xl hover:shadow-lg hover:shadow-sky-500/30 transition-all mt-4 btn-hover-bounce">
                         Cipta Akaun
                     </button>
                 </form>
@@ -366,13 +434,16 @@
         </div>
     </div>
 
-
+    <!-- ========================================== -->
+    <!-- MAIN APP STRUCTURE                         -->
+    <!-- ========================================== -->
     <div id="main-app" class="hidden w-full h-full flex flex-col md:flex-row bg-slate-50">
 
+        <!-- DESKTOP SIDEBAR -->
         <aside class="hidden md:flex flex-col w-72 bg-white border-r border-slate-200 shrink-0 z-30 h-full relative shadow-sm">
             <div class="p-6 flex items-center justify-between border-b border-slate-100">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-blue-500 rounded-xl flex items-center justify-center text-white text-xl shadow-md"><i class="fa-solid fa-leaf"></i></div>
+                    <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-blue-500 rounded-xl flex items-center justify-center text-white text-xl shadow-md animate-pulse"><i class="fa-solid fa-leaf"></i></div>
                     <div>
                         <h1 class="text-2xl font-heading font-black text-slate-800 tracking-wide">BLYNS.</h1>
                         <p class="text-[9px] text-sky-500 font-bold uppercase tracking-widest">Sistem 3.6</p>
@@ -386,51 +457,53 @@
                     <p id="side-name" class="text-sm font-bold text-slate-800 truncate">Memuatkan...</p>
                     <p id="side-rank" class="text-xs text-sky-600 font-semibold bg-sky-100 px-2 py-0.5 rounded-full inline-block mt-1">Resident</p>
                 </div>
-                <div id="notif-bell-desk" class="relative cursor-pointer p-2 bg-white shadow-sm rounded-xl hover:bg-slate-100 transition-colors">
+                <div id="notif-bell-desk" class="relative cursor-pointer p-2 bg-white shadow-sm rounded-xl hover:bg-slate-100 transition-colors btn-hover-bounce">
                     <i class="fa-regular fa-bell text-slate-600 text-lg"></i>
-                    <div id="notif-dot-desk" class="absolute -top-1 -right-1 w-3 h-3 bg-rose-500 rounded-full border-2 border-white hidden"></div>
+                    <div id="notif-dot-desk" class="absolute -top-1 -right-1 w-3 h-3 bg-rose-500 rounded-full border-2 border-white hidden animate-ping"></div>
                 </div>
             </div>
 
             <nav class="flex-1 overflow-y-auto py-6 space-y-2 px-4 font-bold text-sm text-slate-500">
                 <p class="text-[10px] text-slate-400 tracking-widest uppercase mb-3 ml-2">Menu Utama</p>
 
-                <button data-tab="dashboard" class="nav-tab w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all text-sky-700 bg-sky-50 shadow-sm">
+                <button data-tab="dashboard" class="nav-tab w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all text-sky-700 bg-sky-50 shadow-sm btn-hover-bounce">
                     <i class="fa-solid fa-house w-5 text-center"></i> Ringkasan Utama
                 </button>
-                <button data-tab="feed" class="nav-tab w-full flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-slate-50 transition-all">
+                <button data-tab="feed" class="nav-tab w-full flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-slate-50 transition-all btn-hover-bounce">
                     <i class="fa-regular fa-compass w-5 text-center"></i> Jurnal Komuniti
                 </button>
-                <button data-tab="kewangan" class="nav-tab w-full flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-slate-50 transition-all">
+                <button data-tab="kewangan" class="nav-tab w-full flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-slate-50 transition-all btn-hover-bounce">
                     <i class="fa-solid fa-wallet w-5 text-center"></i> Hab Kewangan
                 </button>
-                <button data-tab="chat" class="nav-tab relative w-full flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-slate-50 transition-all">
+                <button data-tab="chat" class="nav-tab relative w-full flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-slate-50 transition-all btn-hover-bounce">
                     <i class="fa-regular fa-comments w-5 text-center"></i> Sembang
                 </button>
-                <button data-tab="kumpulan" class="nav-tab w-full flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-slate-50 transition-all">
+                <button data-tab="kumpulan" class="nav-tab w-full flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-slate-50 transition-all btn-hover-bounce">
                     <i class="fa-solid fa-users w-5 text-center"></i> Rangkaian Rakan
                 </button>
 
                 <p class="text-[10px] text-slate-400 tracking-widest uppercase mb-3 ml-2 mt-6">Akaun</p>
-                <button data-tab="profile" class="nav-tab w-full flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-slate-50 transition-all">
+                <button data-tab="profile" class="nav-tab w-full flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-slate-50 transition-all btn-hover-bounce">
                     <i class="fa-regular fa-user w-5 text-center"></i> Profil Peribadi
                 </button>
             </nav>
 
             <div class="p-4 border-t border-slate-100">
-                <button id="btn-logout-side" class="w-full flex items-center justify-center gap-2 py-3 text-rose-500 font-bold hover:bg-rose-50 rounded-xl transition-colors">
+                <button id="btn-logout-side" class="w-full flex items-center justify-center gap-2 py-3 text-rose-500 font-bold hover:bg-rose-50 rounded-xl transition-colors btn-hover-bounce">
                     <i class="fa-solid fa-right-from-bracket"></i> Log Keluar
                 </button>
             </div>
         </aside>
 
+        <!-- MAIN VIEWPORT CONTENT -->
         <div class="flex-1 flex flex-col relative w-full h-full overflow-hidden bg-slate-50">
 
-            <header class="md:hidden shrink-0 sticky top-0 z-[60] bg-white/90 backdrop-blur-md px-4 py-3 flex items-center justify-between shadow-sm border-b border-slate-100">
+            <!-- MOBILE HEADER (Auto-hide & Auto-show) -->
+            <header id="mobile-header" class="md:hidden shrink-0 fixed top-0 left-0 right-0 z-[60] bg-white/90 backdrop-blur-md px-4 py-3 flex items-center justify-between shadow-sm border-b border-slate-100">
                 <div class="flex items-center gap-3">
-                    <div id="notif-bell-mob" class="relative cursor-pointer p-2.5 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors">
+                    <div id="notif-bell-mob" class="relative cursor-pointer p-2.5 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors btn-hover-bounce">
                         <i class="fa-regular fa-bell text-slate-600 text-lg"></i>
-                        <div id="notif-dot-mob" class="absolute top-1 right-1 w-2.5 h-2.5 bg-rose-500 rounded-full border-2 border-white hidden"></div>
+                        <div id="notif-dot-mob" class="absolute top-1 right-1 w-2.5 h-2.5 bg-rose-500 rounded-full border-2 border-white hidden animate-ping"></div>
                     </div>
                     <img id="mob-avatar" class="w-10 h-10 rounded-full border-2 border-slate-200 shadow-sm object-cover cursor-pointer" onclick="switchToTab('profile')" title="Buka Profil">
                 </div>
@@ -440,9 +513,10 @@
                 </div>
             </header>
 
-            <main id="main-scroll-area" class="flex-1 overflow-y-auto pb-[80px] md:pb-8 relative scroll-smooth w-full">
+            <main id="main-scroll-area" class="flex-1 overflow-y-auto pt-[68px] md:pt-0 pb-[80px] md:pb-8 relative scroll-smooth w-full">
                 <div class="max-w-6xl mx-auto px-4 md:px-8 py-6 md:py-10">
 
+                    <!-- 1. DASHBOARD -->
                     <section id="tab-content-dashboard" class="tab-content space-y-6 md:space-y-8 animate-[fadeIn_0.3s]">
 
                         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -457,7 +531,8 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
 
-                            <div class="md:col-span-8 glass-panel bg-gradient-to-r from-sky-500 to-blue-600 rounded-3xl p-6 md:p-8 relative overflow-hidden text-white shadow-lg shadow-sky-500/20">
+                            <!-- Wealth Card (Animated BG) -->
+                            <div class="md:col-span-8 animated-bg-gradient rounded-3xl p-6 md:p-8 relative overflow-hidden text-white shadow-lg shadow-sky-500/20 transform hover:scale-[1.01] transition-transform duration-300">
                                 <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-white/10 rounded-full blur-2xl"></div>
                                 <div class="absolute top-6 right-6 opacity-50 text-4xl"><i class="fa-solid fa-wallet"></i></div>
 
@@ -476,6 +551,7 @@
                                 </div>
                             </div>
 
+                            <!-- Roda Gembira -->
                             <div class="md:col-span-4 bg-white rounded-3xl p-6 flex flex-col items-center justify-center text-center soft-shadow border border-slate-100 relative overflow-hidden group">
                                 <div class="absolute inset-0 bg-gradient-to-br from-yellow-50 to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity z-0"></div>
                                 <div class="relative z-10 w-full flex flex-col items-center">
@@ -484,13 +560,14 @@
                                     </div>
                                     <h4 class="font-heading font-bold text-slate-800 text-lg">Roda Gembira</h4>
                                     <p class="text-xs text-slate-500 mt-1 mb-4 font-medium px-2">Kumpul token dari tugasan harian untuk memutar roda!</p>
-                                    <button id="btn-spin-wheel" class="w-full bg-slate-900 text-white text-sm font-bold px-6 py-3 rounded-xl hover:bg-slate-800 transition-colors shadow-md">
+                                    <button id="btn-spin-wheel" class="w-full bg-slate-900 text-white text-sm font-bold px-6 py-3 rounded-xl hover:bg-slate-800 transition-colors shadow-md btn-hover-bounce">
                                         PUTAR RODA
                                     </button>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Top Community / Ganjaran / QR -->
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                             <div class="bg-white rounded-3xl p-5 soft-shadow border border-slate-100 order-last lg:order-none col-span-1 md:col-span-2 lg:col-span-1">
@@ -500,40 +577,41 @@
                                 </div>
                             </div>
 
-                            <div class="col-span-1 md:col-span-1 lg:col-span-1 bg-white rounded-3xl p-6 flex flex-col items-start justify-center soft-shadow border border-slate-100">
+                            <div class="col-span-1 md:col-span-1 lg:col-span-1 bg-white rounded-3xl p-6 flex flex-col items-start justify-center soft-shadow border border-slate-100 hover:border-emerald-200 transition-colors">
                                 <div class="flex items-center gap-4 mb-4">
-                                    <div class="w-12 h-12 bg-emerald-100 text-emerald-500 rounded-2xl flex items-center justify-center text-xl"><i class="fa-solid fa-gift"></i></div>
+                                    <div class="w-12 h-12 bg-emerald-100 text-emerald-500 rounded-2xl flex items-center justify-center text-xl"><i class="fa-solid fa-gift animate-bounce"></i></div>
                                     <div>
                                         <h4 class="font-heading font-bold text-slate-800">Ganjaran Harian</h4>
                                         <p class="text-xs text-slate-500 font-medium">RM100 + 50XP</p>
                                     </div>
                                 </div>
-                                <button id="btn-claim-daily" class="w-full bg-emerald-500 text-white text-xs font-bold px-5 py-3 rounded-xl hover:bg-emerald-600 transition-colors shadow-md">TUNTUT</button>
+                                <button id="btn-claim-daily" class="w-full bg-emerald-500 text-white text-xs font-bold px-5 py-3 rounded-xl hover:bg-emerald-600 transition-colors shadow-md btn-hover-bounce glow-emerald">TUNTUT</button>
                             </div>
 
-                            <div class="col-span-1 md:col-span-1 lg:col-span-1 bg-white rounded-3xl p-6 flex flex-col items-start justify-center soft-shadow border border-slate-100">
+                            <div class="col-span-1 md:col-span-1 lg:col-span-1 bg-white rounded-3xl p-6 flex flex-col items-start justify-center soft-shadow border border-slate-100 hover:border-purple-200 transition-colors">
                                 <div class="flex items-center gap-4 mb-4">
-                                    <div class="w-12 h-12 bg-purple-100 text-purple-500 rounded-2xl flex items-center justify-center text-xl"><i class="fa-solid fa-qrcode"></i></div>
+                                    <div class="w-12 h-12 bg-purple-100 text-purple-500 rounded-2xl flex items-center justify-center text-xl"><i class="fa-solid fa-qrcode animate-pulse"></i></div>
                                     <div>
                                         <h4 class="font-heading font-bold text-slate-800">Kod QR Pantas</h4>
                                         <p class="text-xs text-slate-500 font-medium">Imbas/Tunjuk QR</p>
                                     </div>
                                 </div>
-                                <button onclick="openQRModal()" class="w-full bg-purple-500 text-white text-xs font-bold px-5 py-3 rounded-xl hover:bg-purple-600 transition-colors shadow-md">BUKA QR</button>
+                                <button onclick="openQRModal()" class="w-full bg-purple-500 text-white text-xs font-bold px-5 py-3 rounded-xl hover:bg-purple-600 transition-colors shadow-md btn-hover-bounce glow-purple">BUKA QR</button>
                             </div>
                         </div>
 
+                        <!-- 10 Daily Tasks -->
                         <div class="space-y-4">
                             <div class="flex justify-between items-end border-b border-slate-200 pb-2">
                                 <h3 class="text-sm font-bold text-slate-800 font-heading flex items-center gap-2"><i class="fa-solid fa-clipboard-check text-sky-500"></i> Senarai 10 Tugasan Harian</h3>
                                 <p class="text-[10px] text-rose-500 font-bold uppercase hidden md:block">Gagal Siap Semua = Penalti -10XP & RM-20</p>
                             </div>
-                            <div id="tasks-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
-                            </div>
+                            <div id="tasks-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3"></div>
                         </div>
 
                     </section>
 
+                    <!-- 2. JURNAL SOSIAL (FEED) -->
                     <section id="tab-content-feed" class="tab-content space-y-6 hidden animate-[fadeIn_0.3s]">
                         <div class="bg-white p-6 rounded-3xl soft-shadow border border-slate-100">
                             <h1 class="text-2xl font-heading font-bold text-slate-800 mb-4">Jurnal Komuniti 📖</h1>
@@ -543,7 +621,7 @@
                                     <textarea id="feed-post-text" rows="3" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-2xl text-sm focus:outline-none focus:border-sky-500 focus:bg-white resize-none" placeholder="Apa cerita gembira hari ini? Kongsikan..."></textarea>
                                     <div class="flex justify-between items-center">
                                         <span class="text-xs text-slate-400 font-bold bg-slate-100 px-3 py-1 rounded-lg">Ganjaran: +10 XP</span>
-                                        <button id="btn-post-feed" class="bg-sky-500 text-white text-xs font-bold px-6 py-2.5 rounded-xl hover:bg-sky-600 transition-colors shadow-md">KONGSIKAN</button>
+                                        <button id="btn-post-feed" class="bg-sky-500 text-white text-xs font-bold px-6 py-2.5 rounded-xl hover:bg-sky-600 transition-colors shadow-md btn-hover-bounce">KONGSIKAN</button>
                                     </div>
                                 </div>
                             </div>
@@ -562,13 +640,14 @@
                         <div id="feed-posts-list" class="space-y-4"></div>
                     </section>
 
+                    <!-- 3. KEWANGAN -->
                     <section id="tab-content-kewangan" class="tab-content space-y-6 hidden animate-[fadeIn_0.3s]">
                         <h1 class="text-2xl font-heading font-bold text-slate-800">Kewangan 💸</h1>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="bg-white p-6 rounded-3xl soft-shadow border border-slate-100 space-y-5">
                                 <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
-                                    <div class="w-8 h-8 bg-sky-100 text-sky-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-paper-plane"></i></div>
+                                    <div class="w-8 h-8 bg-sky-100 text-sky-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-paper-plane animate-pulse"></i></div>
                                     <h3 class="font-heading font-bold text-slate-800">Pindahan Wang</h3>
                                 </div>
                                 <div class="bg-rose-50 border border-rose-100 p-3 rounded-xl flex gap-3 text-rose-600 text-xs font-bold mb-2">
@@ -586,7 +665,7 @@
                                         <label class="text-xs font-bold text-slate-500 mb-1 block">Jumlah (RM)</label>
                                         <input type="number" id="send-amount" class="w-full bg-slate-50 border border-slate-200 py-3 px-4 text-sm rounded-xl focus:outline-none focus:border-sky-500" placeholder="0.00" step="0.01" required>
                                     </div>
-                                    <button type="submit" class="w-full bg-slate-900 text-white text-sm font-bold py-3.5 rounded-xl hover:bg-slate-800 transition-colors shadow-md">
+                                    <button type="submit" class="w-full bg-slate-900 text-white text-sm font-bold py-3.5 rounded-xl hover:bg-slate-800 transition-colors shadow-md btn-hover-bounce">
                                         PINDAH DANA
                                     </button>
                                 </form>
@@ -596,7 +675,7 @@
                                 <div class="absolute -right-6 -top-6 text-6xl text-white/5"><i class="fa-solid fa-vault"></i></div>
                                 <div class="border-b border-slate-700 pb-3 relative z-10 flex justify-between items-start">
                                     <div>
-                                        <h3 class="font-heading font-bold text-lg text-emerald-400">Pelaburan Harian</h3>
+                                        <h3 class="font-heading font-bold text-lg text-emerald-400 animate-pulse">Pelaburan Harian</h3>
                                         <p class="text-[10px] text-slate-400 mt-1 uppercase tracking-widest">Dana Dikunci 24 Jam • Caj Rawak ±30%</p>
                                     </div>
                                 </div>
@@ -606,10 +685,10 @@
                                 </div>
                                 <div class="flex gap-2 relative z-10">
                                     <input type="number" id="vault-input" class="w-2/3 bg-slate-800 border border-slate-700 rounded-xl py-3 px-4 text-sm focus:outline-none focus:border-emerald-500 text-white placeholder-slate-500" placeholder="Jumlah (RM)">
-                                    <button id="btn-stake" class="w-1/3 bg-emerald-500 text-white font-bold text-sm rounded-xl hover:bg-emerald-600 transition-colors shadow-md">Labur</button>
+                                    <button id="btn-stake" class="w-1/3 bg-emerald-500 text-white font-bold text-sm rounded-xl hover:bg-emerald-600 transition-colors shadow-md btn-hover-bounce">Labur</button>
                                 </div>
                                 <div class="relative z-10 pt-2 border-t border-slate-700">
-                                    <button id="btn-claim-yield" class="w-full bg-sky-500 text-white font-bold py-3 rounded-xl hover:bg-sky-600 transition-colors shadow-md">Tuntut Pelaburan & Dividen (10%)</button>
+                                    <button id="btn-claim-yield" class="w-full bg-sky-500 text-white font-bold py-3 rounded-xl hover:bg-sky-600 transition-colors shadow-md btn-hover-bounce">Tuntut Pelaburan & Dividen (10%)</button>
                                 </div>
                             </div>
                         </div>
@@ -622,20 +701,20 @@
                                 <div class="h-12 bg-slate-100 rounded-xl"></div>
                                 <div class="h-12 bg-slate-100 rounded-xl"></div>
                             </div>
-                            <div id="transactions-list" class="divide-y divide-slate-100 max-h-80 overflow-y-auto">
-                            </div>
+                            <div id="transactions-list" class="divide-y divide-slate-100 max-h-80 overflow-y-auto"></div>
                         </div>
                     </section>
 
+                    <!-- 4. CHAT DIRECTORY -->
                     <section id="tab-content-chat" class="tab-content space-y-6 hidden animate-[fadeIn_0.3s] h-full flex-col">
                         <div class="flex justify-between items-center">
                             <h1 class="text-2xl font-heading font-bold text-slate-800">Ruang Sembang 💬</h1>
-                            <button id="btn-toggle-create-group" class="bg-sky-100 text-sky-600 text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-sky-200 transition-colors flex items-center shadow-sm"><i class="fa-solid fa-plus mr-2"></i> Bina Kumpulan</button>
+                            <button id="btn-toggle-create-group" class="bg-sky-100 text-sky-600 text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-sky-200 transition-colors flex items-center shadow-sm btn-hover-bounce"><i class="fa-solid fa-plus mr-2 animate-spin-slow"></i> Bina Kumpulan</button>
                         </div>
 
-                        <div class="flex p-1 bg-slate-200 rounded-xl max-w-sm w-full">
-                            <button id="tab-btn-pms" class="flex-1 py-2 rounded-xl text-sm font-bold bg-white text-sky-600 shadow-sm transition-all">Peribadi (PM)</button>
-                            <button id="tab-btn-lounges" class="flex-1 py-2 rounded-xl text-sm font-bold text-slate-500 hover:text-slate-700 transition-all">Kumpulan Awam</button>
+                        <div class="flex p-1 bg-slate-200 rounded-xl max-w-sm w-full shadow-inner">
+                            <button id="tab-btn-pms" class="flex-1 py-2 rounded-xl text-sm font-bold bg-white text-sky-600 shadow-sm transition-all btn-hover-bounce">Peribadi (PM)</button>
+                            <button id="tab-btn-lounges" class="flex-1 py-2 rounded-xl text-sm font-bold text-slate-500 hover:text-slate-700 transition-all btn-hover-bounce">Kumpulan Awam</button>
                         </div>
 
                         <div id="create-group-dock" class="bg-white p-5 rounded-3xl soft-shadow border border-slate-200 hidden border-l-4 border-l-sky-500">
@@ -643,43 +722,42 @@
                             <div class="flex flex-col md:flex-row gap-3">
                                 <input type="text" id="new-group-name" class="flex-1 bg-slate-50 border border-slate-200 px-4 py-3 rounded-xl text-sm focus:outline-none focus:border-sky-500" placeholder="Nama Kumpulan (Cth: Bisnes Kopi)..." required>
                                 <input type="password" id="new-group-password" class="flex-1 bg-slate-50 border border-slate-200 px-4 py-3 rounded-xl text-sm focus:outline-none focus:border-sky-500" placeholder="Kata Laluan (Kosong = Terbuka Semua)">
-                                <button id="btn-create-group" class="bg-slate-900 text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-slate-800 shadow-md">BINA</button>
+                                <button id="btn-create-group" class="bg-slate-900 text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-slate-800 shadow-md btn-hover-bounce">BINA</button>
                             </div>
                         </div>
 
                         <div id="chat-section-pms" class="flex-1 flex flex-col space-y-4 h-full">
                             <div class="flex gap-2">
                                 <input type="email" id="pm-target-email" class="flex-1 bg-white border border-slate-200 px-4 py-3.5 rounded-2xl text-sm focus:outline-none focus:border-sky-500 shadow-sm" placeholder="Cari e-mel rakan untuk mula sembang peribadi...">
-                                <button id="btn-start-pm" class="bg-sky-500 text-white px-5 rounded-2xl shadow-sm hover:bg-sky-600"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button id="btn-start-pm" class="bg-sky-500 text-white px-5 rounded-2xl shadow-sm hover:bg-sky-600 btn-hover-bounce"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </div>
-                            <div id="pms-list" class="space-y-2 flex-1 overflow-y-auto pb-10">
-                            </div>
+                            <div id="pms-list" class="space-y-2 flex-1 overflow-y-auto pb-10"></div>
                         </div>
 
                         <div id="chat-section-lounges" class="flex-1 flex flex-col space-y-4 hidden h-full">
-                            <div id="groups-list" class="grid grid-cols-1 md:grid-cols-2 gap-3 pb-10">
-                            </div>
+                            <div id="groups-list" class="grid grid-cols-1 md:grid-cols-2 gap-3 pb-10"></div>
                         </div>
                     </section>
 
+                    <!-- 5. KUMPULAN / FRIENDS -->
                     <section id="tab-content-kumpulan" class="tab-content space-y-6 hidden animate-[fadeIn_0.3s]">
                         <h1 class="text-2xl font-heading font-bold text-slate-800">Rangkaian Kenalan 🤝</h1>
 
                         <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-6 rounded-3xl text-white shadow-lg flex flex-col md:flex-row gap-4 items-center justify-between">
                             <div>
-                                <h3 class="font-bold text-lg">Tambah Kenalan Baru</h3>
-                                <p class="text-xs text-indigo-100">Simpan e-mel untuk pindahan pantas tanpa taip berulang kali.</p>
+                                <h3 class="font-bold text-lg animate-pulse">Tambah Kenalan Baru</h3>
+                                <p class="text-xs text-indigo-100">Simpan e-mel untuk pindahan pantas & sembang peribadi automatik.</p>
                             </div>
                             <div class="flex w-full md:w-auto gap-2">
                                 <input type="email" id="friend-target-email" class="flex-1 md:w-64 bg-white/20 border border-white/30 text-white placeholder-indigo-200 px-4 py-3 rounded-xl text-sm focus:outline-none focus:bg-white/30" placeholder="E-mel Rakan">
-                                <button id="btn-add-friend" class="bg-white text-indigo-600 font-bold px-5 py-3 rounded-xl hover:bg-indigo-50 shadow-sm">TAMBAH</button>
+                                <button id="btn-add-friend" class="bg-white text-indigo-600 font-bold px-5 py-3 rounded-xl hover:bg-indigo-50 shadow-sm btn-hover-bounce">TAMBAH</button>
                             </div>
                         </div>
 
-                        <div id="friends-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        </div>
+                        <div id="friends-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
                     </section>
 
+                    <!-- 6. PROFIL -->
                     <section id="tab-content-profile" class="tab-content space-y-6 hidden animate-[fadeIn_0.3s]">
                         <h1 class="text-2xl font-heading font-bold text-slate-800">Profil & Tetapan ⚙️</h1>
 
@@ -726,7 +804,7 @@
                                     </div>
                                 </div>
                                 <div class="pt-2">
-                                    <button type="submit" class="bg-sky-500 text-white font-bold text-sm px-6 py-3.5 rounded-xl hover:bg-sky-600 shadow-md transition-colors w-full md:w-auto">Simpan Perubahan</button>
+                                    <button type="submit" class="bg-sky-500 text-white font-bold text-sm px-6 py-3.5 rounded-xl hover:bg-sky-600 shadow-md transition-colors w-full md:w-auto btn-hover-bounce">Simpan Perubahan</button>
                                 </div>
                             </form>
                         </div>
@@ -737,7 +815,7 @@
                         </div>
 
                         <div class="pt-4 flex justify-center md:justify-start pb-8">
-                            <button id="btn-logout" class="bg-rose-50 text-rose-500 font-bold px-6 py-3.5 rounded-xl hover:bg-rose-100 transition-colors border border-rose-100 flex items-center justify-center gap-2 w-full md:w-auto shadow-sm">
+                            <button id="btn-logout" class="bg-rose-50 text-rose-500 font-bold px-6 py-3.5 rounded-xl hover:bg-rose-100 transition-colors border border-rose-100 flex items-center justify-center gap-2 w-full md:w-auto shadow-sm btn-hover-bounce">
                                 <i class="fa-solid fa-power-off"></i> Log Keluar
                             </button>
                         </div>
@@ -745,11 +823,12 @@
                 </div>
             </main>
 
+            <!-- 7. CHATROOM OVERLAY -->
             <section id="tab-content-chatroom" class="tab-content hidden absolute inset-0 z-[50] flex-col bg-slate-50 pb-[68px] md:pb-0 h-full w-full">
 
                 <div class="bg-white px-4 py-3 flex items-center justify-between border-b border-slate-200 shrink-0 shadow-sm relative z-20">
                     <div class="flex items-center gap-3">
-                        <button id="btn-close-chat" class="w-12 h-12 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center justify-center transition-colors">
+                        <button id="btn-close-chat" class="w-12 h-12 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center justify-center transition-colors btn-hover-bounce">
                             <i class="fa-solid fa-arrow-left text-lg"></i>
                         </button>
                         <div class="cursor-pointer p-3 -ml-2 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-2" onclick="showChatInfo()" title="Lihat Profil / Maklumat Detail">
@@ -765,8 +844,7 @@
                     </div>
                 </div>
 
-                <div id="chat-messages" class="flex-1 overflow-y-auto overflow-x-hidden p-4 space-y-4 scroll-smooth w-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] relative z-10 flex flex-col" style="background-color: #f8fafc;">
-                </div>
+                <div id="chat-messages" class="flex-1 overflow-y-auto overflow-x-hidden p-4 space-y-4 scroll-smooth w-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] relative z-10 flex flex-col" style="background-color: #f8fafc;"></div>
 
                 <div class="bg-white p-3 md:p-4 border-t border-slate-200 shrink-0 relative z-20">
                     <form id="form-chat-send" class="flex gap-2 relative items-center">
@@ -774,7 +852,7 @@
                             <input type="text" id="chat-input-text" class="w-full bg-transparent py-3.5 text-sm focus:outline-none text-slate-800" placeholder="Taip di sini (Maks 50 patah perkataan)..." required autocomplete="off">
                             <span id="word-count" class="text-[10px] text-slate-400 font-bold whitespace-nowrap ml-2">0/50</span>
                         </div>
-                        <button type="submit" class="w-14 h-14 md:w-auto md:px-6 rounded-2xl bg-sky-500 text-white hover:bg-sky-600 shadow-md flex items-center justify-center transition-colors shrink-0 group">
+                        <button type="submit" class="w-14 h-14 md:w-auto md:px-6 rounded-2xl bg-sky-500 text-white hover:bg-sky-600 shadow-md flex items-center justify-center transition-colors shrink-0 group btn-hover-bounce">
                             <span class="hidden md:block font-bold mr-2 text-sm">Hantar</span>
                             <i class="fa-solid fa-paper-plane group-hover:translate-x-1 transition-transform"></i>
                         </button>
@@ -784,27 +862,29 @@
 
         </div>
 
+        <!-- MOBILE BOTTOM NAVIGATION -->
         <nav class="md:hidden fixed bottom-0 left-0 right-0 h-[68px] z-[40] bg-white border-t border-slate-100 flex items-center justify-around px-2 shadow-[0_-5px_20px_rgba(0,0,0,0.05)] pb-safe">
-            <button data-tab="dashboard" class="nav-tab relative w-12 h-12 flex flex-col items-center justify-center text-sky-500 transition-colors">
+            <button data-tab="dashboard" class="nav-tab relative w-12 h-12 flex flex-col items-center justify-center text-sky-500 transition-colors btn-hover-bounce">
                 <i class="fa-solid fa-house text-xl mb-1"></i>
             </button>
-            <button data-tab="feed" class="nav-tab relative w-12 h-12 flex flex-col items-center justify-center text-slate-400 transition-colors">
+            <button data-tab="feed" class="nav-tab relative w-12 h-12 flex flex-col items-center justify-center text-slate-400 transition-colors btn-hover-bounce">
                 <i class="fa-solid fa-compass text-xl mb-1"></i>
             </button>
             <button data-tab="kewangan" class="nav-tab relative -mt-6 w-14 h-14 bg-sky-500 text-white rounded-full shadow-lg shadow-sky-500/40 flex items-center justify-center border-4 border-slate-50 transition-transform active:scale-95">
                 <i class="fa-solid fa-wallet text-xl"></i>
             </button>
-            <button data-tab="chat" class="nav-tab relative w-12 h-12 flex flex-col items-center justify-center text-slate-400 transition-colors">
+            <button data-tab="chat" class="nav-tab relative w-12 h-12 flex flex-col items-center justify-center text-slate-400 transition-colors btn-hover-bounce">
                 <i class="fa-solid fa-comments text-xl mb-1"></i>
                 <span id="badge-chat-mob" class="absolute top-1 right-1 w-2.5 h-2.5 bg-red-500 rounded-full border border-white hidden"></span>
             </button>
-            <button data-tab="kumpulan" class="nav-tab relative w-12 h-12 flex flex-col items-center justify-center text-slate-400 transition-colors">
+            <button data-tab="kumpulan" class="nav-tab relative w-12 h-12 flex flex-col items-center justify-center text-slate-400 transition-colors btn-hover-bounce">
                 <i class="fa-solid fa-users text-xl mb-1"></i>
             </button>
         </nav>
 
     </div>
 
+    <!-- MAIN JAVASCRIPT ENGINE -->
     <script type="module">
         import {
             initializeApp
@@ -860,6 +940,42 @@
 
         let confirmCallback = null;
         let promptCallback = null;
+
+        // Header auto-hide tracking variables
+        let lastScrollTop = 0;
+        let headerTimeout = null;
+        const mobileHeader = document.getElementById('mobile-header');
+        const mainScrollArea = document.getElementById('main-scroll-area');
+
+        // Reset & restart timer for header hiding (if inactive)
+        const resetHeaderTimeout = () => {
+            if (headerTimeout) clearTimeout(headerTimeout);
+            mobileHeader.classList.remove('header-hidden');
+            headerTimeout = setTimeout(() => {
+                // If not at the very top of the scroll, hide it
+                if (mainScrollArea.scrollTop > 50 && !mobileHeader.classList.contains('header-hidden')) {
+                    mobileHeader.classList.add('header-hidden');
+                }
+            }, 10000); // 10 seconds inactive
+        };
+
+        // Scroll listener for auto hide/show
+        mainScrollArea.addEventListener('scroll', () => {
+            let scrollTop = mainScrollArea.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 50) {
+                // Scroll down - hide header immediately
+                mobileHeader.classList.add('header-hidden');
+            } else {
+                // Scroll up - show header immediately
+                mobileHeader.classList.remove('header-hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            resetHeaderTimeout();
+        });
+
+        // Initialize user interaction triggers for header
+        window.addEventListener('click', resetHeaderTimeout);
+        window.addEventListener('touchstart', resetHeaderTimeout);
 
         // --- SISTEM TUGASAN & PENALTI ---
         const taskBank = [{
@@ -975,7 +1091,7 @@
             const audio = document.getElementById('sound-pop');
             if (audio) {
                 audio.currentTime = 0;
-                audio.play().catch(e => {}); // Ignore autoplay policies silently
+                audio.play().catch(e => {}); // Autoplay safety guard
             }
         };
 
@@ -1002,12 +1118,19 @@
                 'bg-sky-50 text-sky-600 border-sky-200';
             let icon = type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-circle-xmark' : type === 'warning' ? 'fa-triangle-exclamation' : 'fa-info-circle';
 
-            toast.className = `p-4 border-l-4 ${colors} rounded-r-xl shadow-lg flex items-center gap-3 transition-all duration-300 transform translate-x-full font-bold text-sm z-50`;
+            toast.className = `p-4 border-l-4 ${colors} rounded-r-xl shadow-lg flex items-center gap-3 transition-all duration-300 transform translate-x-full font-bold text-sm z-50 cursor-pointer`;
             toast.innerHTML = `<i class="fa-solid ${icon} text-lg"></i><span class="flex-1">${message}</span><button class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>`;
 
-            toast.querySelector('button').onclick = () => {
+            toast.querySelector('button').onclick = (e) => {
+                e.stopPropagation();
                 toast.classList.add('opacity-0', 'translate-x-full');
                 setTimeout(() => toast.remove(), 300);
+            };
+
+            // Clicking toast opens notifications dropdown
+            toast.onclick = () => {
+                UI.notifDropdown.classList.remove('hidden');
+                toast.remove();
             };
 
             UI.toastContainer.appendChild(toast);
@@ -1025,11 +1148,14 @@
             setTimeout(() => document.getElementById('confirm-modal-box').classList.remove('scale-95'), 10);
             confirmCallback = callback;
         };
-        document.getElementById('btn-confirm-cancel') || document.getElementById('btn-confirm-no').addEventListener('click', () => {
-            document.getElementById('confirm-modal-box').classList.add('scale-95');
-            setTimeout(() => UI.confirmModal.classList.add('hidden'), 200);
-            confirmCallback = null;
-        });
+        const cancelNoBtn = document.getElementById('btn-confirm-no');
+        if (cancelNoBtn) {
+            cancelNoBtn.addEventListener('click', () => {
+                document.getElementById('confirm-modal-box').classList.add('scale-95');
+                setTimeout(() => UI.confirmModal.classList.add('hidden'), 200);
+                confirmCallback = null;
+            });
+        }
         document.getElementById('btn-confirm-yes').addEventListener('click', () => {
             document.getElementById('confirm-modal-box').classList.add('scale-95');
             setTimeout(() => UI.confirmModal.classList.add('hidden'), 200);
@@ -1064,12 +1190,13 @@
         });
 
 
-        // Notifikasi HTML
+        // Notifikasi HTML & Navigation Mapping
         let notificationsList = [];
-        const addNotification = (title, message, isNew = true) => {
+        const addNotification = (title, message, targetTab = null, isNew = true) => {
             notificationsList.unshift({
                 title,
                 message,
+                targetTab,
                 time: Date.now()
             });
             if (notificationsList.length > 20) notificationsList.pop();
@@ -1094,12 +1221,41 @@
                 list.innerHTML = `<div class="text-center text-xs text-slate-400 py-6">Tiada notifikasi.</div>`;
                 return;
             }
-            list.innerHTML = notificationsList.map(n => `
-                <div class="p-3 bg-white rounded-xl border border-slate-100 shadow-sm mb-2">
-                    <p class="text-xs font-bold text-slate-800">${n.title}</p>
+            list.innerHTML = notificationsList.map((n, idx) => `
+                <div onclick="clickNotification(${idx})" class="p-3 bg-white rounded-xl border border-slate-100 shadow-sm mb-2 hover:bg-sky-50 transition-colors cursor-pointer">
+                    <p class="text-xs font-bold text-slate-800 flex justify-between">
+                        <span>${n.title}</span>
+                        <span class="text-[8px] text-slate-400 font-normal">${new Date(n.time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                    </p>
                     <p class="text-[10px] text-slate-500 mt-1 leading-snug">${n.message}</p>
                 </div>
             `).join('');
+        };
+
+        // Clicking notification brings you directly to the destination tab
+        window.clickNotification = (index) => {
+            const item = notificationsList[index];
+            if (item && item.targetTab) {
+                if (item.targetTab.startsWith('chatroom_')) {
+                    const cleanId = item.targetTab.replace('chatroom_', '');
+                    // Find if it's a lounge or PM
+                    const isLounge = allLounges.find(g => g.id === cleanId);
+                    if (isLounge) {
+                        openGroupChat(isLounge.id, isLounge.name, isLounge.password || '');
+                    } else {
+                        // Attempt to extract PM user info
+                        const pmContact = allUsers.find(u => u.uid === cleanId);
+                        if (pmContact) {
+                            openPM(pmContact.uid, pmContact.fullName);
+                        } else {
+                            switchToTab('chat');
+                        }
+                    }
+                } else {
+                    switchToTab(item.targetTab);
+                }
+                UI.notifDropdown.classList.add('hidden');
+            }
         };
 
         window.clearNotifications = () => {
@@ -1127,7 +1283,7 @@
 
         // Generate Avatar Based on Gender
         const generateAvatarURL = (username, gender) => {
-            const seed = (gender === 'Perempuan' ? 'Jocelyn' : 'Felix') + '_' + username;
+            const seed = (gender === 'Perempuan' ? 'Jocelyn' : 'Felix') + '_' + username.replace('@', '');
             return `https://api.dicebear.com/7.x/adventurer/svg?seed=${seed}`;
         };
 
@@ -1298,7 +1454,7 @@
                     const oldPMs = pmsListCache.length;
                     pmsListCache = userData.pmContacts || [];
                     if (pmsListCache.length > oldPMs && oldPMs !== 0) {
-                        addNotification("Rakan Baru", "Seseorang telah memulakan sembang peribadi dengan anda!");
+                        addNotification("Rakan Baru", "Seseorang telah memulakan sembang peribadi dengan anda!", "chat");
                     }
 
                     if (!userData.pin || userData.pin.trim() === "") UI.pinModal.classList.remove('hidden');
@@ -1340,8 +1496,8 @@
                 renderChronicle(posts);
                 document.getElementById('feed-skeleton').classList.add('hidden');
 
-                if (posts.length > 0 && posts[0].userId !== user.uid && (Date.now() - posts[0].timestamp < 10000)) {
-                    addNotification('Jurnal Komuniti Baru', `${posts[0].authorName} kongsikan cerita baharu.`);
+                if (posts.length > 0 && posts[0].userId !== user.uid && (Date.now() - posts[0].timestamp < 6000)) {
+                    addNotification('Jurnal Komuniti Baru', `${posts[0].authorName} Telah Berkongsi Jurnal!`, 'feed');
                 }
             });
 
@@ -1358,7 +1514,27 @@
                 const friends = [];
                 snapshot.forEach(d => friends.push(d.data()));
                 renderDirectory(friends);
+                // Friends list triggers sync with PM cache list
+                syncFriendsToPMs(friends);
             });
+        };
+
+        // Auto syncing added friends to appear in PM Contacts list
+        const syncFriendsToPMs = async (friends) => {
+            if (!userData) return;
+            let updatedPMList = [...(userData.pmContacts || [])];
+            let changed = false;
+            friends.forEach(f => {
+                if (!updatedPMList.includes(f.uid)) {
+                    updatedPMList.push(f.uid);
+                    changed = true;
+                }
+            });
+            if (changed) {
+                await updateDoc(doc(db, 'artifacts', appId, 'users', currentUser.uid, 'profile', 'main'), {
+                    pmContacts: updatedPMList
+                }).catch(e => {});
+            }
         };
 
         const checkSeasonDecay = async () => {
@@ -1376,7 +1552,7 @@
                     xp: newXp,
                     rank: getRankDetails(newXp).title
                 });
-                addNotification('Musim Baru', 'Sistem Musim: -50 EXP ditarik.');
+                addNotification('Musim Baru', 'Sistem Musim: -50 EXP ditarik.', 'dashboard');
             }
         };
 
@@ -1397,7 +1573,7 @@
                             xp: newXp,
                             balance: newBal
                         });
-                        addNotification('Penalti Harian', 'Tugasan semalam gagal disiapkan sepenuhnya. -10 EXP & RM-20');
+                        addNotification('Penalti Harian', 'Tugasan semalam gagal disiapkan sepenuhnya. -10 EXP & RM-20', 'dashboard');
                     }
                 }
                 // Generate new tasks
@@ -1473,7 +1649,7 @@
                     btnClaim.disabled = true;
                 } else {
                     btnClaim.textContent = "TUNTUT";
-                    btnClaim.className = "w-full bg-emerald-500 text-white text-xs font-bold px-5 py-3 rounded-xl hover:bg-emerald-600 transition-colors shadow-md";
+                    btnClaim.className = "w-full bg-emerald-500 text-white text-xs font-bold px-5 py-3 rounded-xl hover:bg-emerald-600 transition-colors shadow-md btn-hover-bounce glow-emerald";
                     btnClaim.disabled = false;
                 }
             }
@@ -1484,7 +1660,7 @@
             if (btnSpin) {
                 if (tokenCount > 0) {
                     btnSpin.innerHTML = `PUTAR RODA <span class="bg-sky-500 px-2 py-0.5 ml-2 rounded text-[10px]">${tokenCount} Token</span>`;
-                    btnSpin.className = "w-full bg-slate-900 text-white text-sm font-bold px-6 py-3 rounded-xl hover:bg-slate-800 transition-colors shadow-md flex items-center justify-center";
+                    btnSpin.className = "w-full bg-slate-900 text-white text-sm font-bold px-6 py-3 rounded-xl hover:bg-slate-800 transition-colors shadow-md flex items-center justify-center btn-hover-bounce";
                     btnSpin.disabled = false;
                 } else {
                     btnSpin.textContent = "TIADA TIKET PUTAR";
@@ -1502,7 +1678,7 @@
                     const pct = Math.min((progress / t.target) * 100, 100);
                     let tokenBadge = t.token > 0 ? `<span class="bg-purple-100 text-purple-600 px-1 py-0.5 rounded text-[8px] font-bold">+${t.token} Token</span>` : '';
                     return `
-                        <div class="border ${done ? 'border-emerald-200 bg-emerald-50' : 'border-slate-100 bg-white'} rounded-2xl p-3 soft-shadow flex flex-col justify-between h-full">
+                        <div class="border ${done ? 'border-emerald-200 bg-emerald-50' : 'border-slate-100 bg-white'} rounded-2xl p-3 soft-shadow flex flex-col justify-between h-full transform hover:scale-[1.03] transition-transform duration-200">
                             <div class="flex items-center gap-2 mb-2">
                                 <div class="w-6 h-6 rounded-md ${done ? 'bg-emerald-200 text-emerald-600' : 'bg-sky-100 text-sky-500'} flex items-center justify-center text-xs"><i class="fa-solid ${t.icon}"></i></div>
                                 <h4 class="text-[10px] font-bold text-slate-700 leading-tight flex-1">${t.label}</h4>
@@ -1525,7 +1701,7 @@
             const achList = document.getElementById('achievements-list');
             if (achList) {
                 achList.innerHTML = userData.achievements.map(a => `
-                    <div class="bg-gradient-to-r from-sky-500 to-blue-500 text-white p-3 rounded-2xl flex flex-col items-center justify-center text-center shadow-md">
+                    <div class="bg-gradient-to-r from-sky-500 to-blue-500 text-white p-3 rounded-2xl flex flex-col items-center justify-center text-center shadow-md transform hover:rotate-3 transition-transform">
                         <i class="fa-solid fa-medal text-2xl mb-1 text-yellow-300"></i>
                         <span class="text-[10px] font-bold tracking-wider uppercase">${a}</span>
                     </div>
@@ -1538,7 +1714,7 @@
             if (!board || allUsers.length === 0) return;
             const sorted = [...allUsers].sort((a, b) => b.xp - a.xp).slice(0, 3);
             board.innerHTML = sorted.map((u, i) => `
-                <div class="flex items-center gap-3 p-2 rounded-xl ${i===0?'bg-yellow-50 border border-yellow-200':i===1?'bg-slate-50 border border-slate-200':'bg-orange-50 border border-orange-200'}">
+                <div class="flex items-center gap-3 p-2 rounded-xl transform hover:translate-x-1 transition-transform ${i===0?'bg-yellow-50 border border-yellow-200':i===1?'bg-slate-50 border border-slate-200':'bg-orange-50 border border-orange-200'}">
                     <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${i===0?'bg-yellow-400 text-white':i===1?'bg-slate-300 text-white':'bg-orange-400 text-white'}">${i+1}</div>
                     <img src="${u.avatarUrl}" class="w-8 h-8 rounded-full border border-white shadow-sm object-cover">
                     <div class="flex-1 truncate">
@@ -1560,7 +1736,7 @@
                 });
                 await awardGains(50, 100, "Tuntut Kehadiran Harian");
                 updateTaskProgress('claim_1');
-                showToast("RM100 dan 50XP dikreditkan.", "success");
+                addNotification('Tuntutan Berjaya', 'Tuntutan Harian RM100 + 50XP direditkan!', 'dashboard');
             } catch (e) {} finally {
                 hideGlobalLoader();
             }
@@ -1584,7 +1760,7 @@
 
                 await awardGains(rewardsXP[rIdx], rewardsRM[rIdx], 'Menang Roda Gembira');
                 updateTaskProgress('spin_1');
-                showToast(`Tahniah! RM${rewardsRM[rIdx]} & ${rewardsXP[rIdx]}XP`, "success");
+                addNotification('Roda Gembira', `Tahniah! Anda menang RM${rewardsRM[rIdx]} dan ${rewardsXP[rIdx]}XP!`, 'dashboard');
             }, 4000);
         };
 
@@ -1608,7 +1784,7 @@
             });
             if (isDone) {
                 await awardGains(target.xp, target.rm, `Tugasan: ${target.label}`);
-                showToast(`Tugas selesai! RM${target.rm}, ${target.xp}XP ${addToken>0 ? `& ${addToken} Token` : ''} masuk.`, 'success');
+                addNotification('Tugasan Selesai!', `Tugasan "${target.label}" selesai: +RM${target.rm} & +${target.xp}XP!`, 'dashboard');
             }
         };
 
@@ -1641,7 +1817,7 @@
             }
         };
 
-        // KEWANGAN & PIN
+        // PIN & MONEY SENDING
         const requestPin = (callback) => {
             document.getElementById('pin-input').value = '';
             UI.pinModal.classList.remove('hidden');
@@ -1727,6 +1903,7 @@
                     showToast("Pindahan berjaya.", "success");
                     updateTaskProgress('transfer_1');
                     window.showReceipt(txId, target.fullName, amt, tax, ts);
+                    addNotification('Pemindahan Dana Berjaya', `Pindahan RM${amt} kepada ${target.fullName} diproses asap!`, 'kewangan');
                 } catch (e) {
                     showToast(e.message, "error");
                 } finally {
@@ -1800,10 +1977,10 @@
                         </div>
                         <p class="text-sm text-slate-700 whitespace-pre-wrap">${p.content}</p>
                         <div class="flex gap-2 pt-2 border-t border-slate-50 mt-1">
-                            <button onclick="interactPost('${p.id}', 'love')" class="${hasLoved ? 'bg-rose-100 text-rose-500' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'} text-xs font-bold px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1">
+                            <button onclick="interactPost('${p.id}', 'love')" class="${hasLoved ? 'bg-rose-100 text-rose-500' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'} text-xs font-bold px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1 btn-hover-bounce">
                                 <i class="${hasLoved ? 'fa-solid' : 'fa-regular'} fa-heart"></i> Suka ${(p.loves || []).length}
                             </button>
-                            <button onclick="interactPost('${p.id}', 'dislike')" class="${hasDisliked ? 'bg-slate-700 text-white' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'} text-xs font-bold px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1">
+                            <button onclick="interactPost('${p.id}', 'dislike')" class="${hasDisliked ? 'bg-slate-700 text-white' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'} text-xs font-bold px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1 btn-hover-bounce">
                                 <i class="fa-solid fa-thumbs-down"></i> ${(p.dislikes || []).length}
                             </button>
                         </div>
@@ -1855,17 +2032,21 @@
         };
 
 
-        // --- CHAT SYSTEM (Tanpa E2E) ---
+        // --- CHAT SYSTEM (E2E REMOVED) ---
         const chatInput = document.getElementById('chat-input-text');
         const wordCountDisplay = document.getElementById('word-count');
 
+        // WORD COUNT FIXED: Accurate split & prevents blocking typing spacebar
         chatInput.addEventListener('input', () => {
-            const text = chatInput.value.trim();
-            const words = text ? text.split(/\s+/) : [];
-            wordCountDisplay.textContent = `${words.length}/50`;
-            if (words.length > 50) {
+            const text = chatInput.value;
+            // Clean split of spaces but keep spaces so user can continue writing naturally
+            const wordList = text.trim() === "" ? [] : text.trim().split(/\s+/);
+            const count = wordList.length;
+            wordCountDisplay.textContent = `${count}/50`;
+            if (count > 50) {
                 wordCountDisplay.classList.replace('text-slate-400', 'text-rose-500');
-                chatInput.value = words.slice(0, 50).join(' ');
+                // Trim trailing words
+                chatInput.value = wordList.slice(0, 50).join(' ');
                 wordCountDisplay.textContent = `50/50`;
             } else {
                 wordCountDisplay.classList.replace('text-rose-500', 'text-slate-400');
@@ -1893,14 +2074,17 @@
 
                 const container = document.getElementById('chat-messages');
                 if (msgs.length === 0) {
-                    container.innerHTML = `<div class="h-full flex items-center justify-center text-xs text-slate-400 font-bold">Mula bersembang...</div>`;
+                    container.innerHTML = `<div class="h-full flex items-center justify-center text-xs text-slate-400 font-bold">Mesej selamat. Sila mula perbualan.</div>`;
                     return;
                 }
 
-                // Cek Mesej Baru dari orang lain
-                const recentMsgs = msgs.filter(m => m.timestamp > Date.now() - 3000 && m.senderId !== currentUser.uid);
-                if (recentMsgs.length > 0 && currentActiveGroupId === groupId) {
+                // Check for new incoming messages from other people (to trigger sound and banner asap)
+                const lastMsg = msgs[msgs.length - 1];
+                if (lastMsg && lastMsg.senderId !== currentUser.uid && (Date.now() - lastMsg.timestamp < 3000)) {
                     playSound();
+                    // Auto notify with name format
+                    const displayMsg = lastMsg.text || "Mesej dihantar";
+                    addNotification(`${lastMsg.senderName}`, `${displayMsg}`, `chatroom_${groupId}`);
                 }
 
                 if (!isLounge) {
@@ -1917,8 +2101,7 @@
 
                 container.innerHTML = msgs.map(m => {
                     const isOwn = m.senderId === currentUser.uid;
-                    // Sokongan belakang (backward comp) jika mesej lama ada cipher
-                    const messageText = m.text || m.cipher || "*(Mesej tidak disokong)*";
+                    const decText = m.text || m.cipher || "*(Mesej kosong)*";
                     const time = new Date(m.timestamp).toLocaleTimeString('en-GB', {
                         hour: '2-digit',
                         minute: '2-digit'
@@ -1931,7 +2114,7 @@
                         readTicks = readCount > 0 ? `<i class="fa-solid fa-check-double text-sky-200 text-[10px] ml-1"></i>` : `<i class="fa-solid fa-check text-white/50 text-[10px] ml-1"></i>`;
                     }
 
-                    // GELEMBUNG CHAT FIX: w-fit max-w-[85%]
+                    // GELEMBUNG CHAT: kemas, w-fit dan tidak kedabak besar
                     const alignClass = isOwn ? 'ml-auto items-end' : 'mr-auto items-start';
                     const bgClass = isOwn ? 'bg-gradient-to-br from-sky-500 to-blue-600 text-white rounded-l-2xl rounded-tr-2xl shadow-md' : 'bg-white text-slate-800 rounded-r-2xl rounded-tl-2xl shadow-sm border border-slate-100';
                     const nameColor = isOwn ? 'text-sky-100' : 'text-sky-600';
@@ -1950,7 +2133,7 @@
                             <div class="relative w-full flex flex-col ${alignClass}">
                                 ${optionsMenu}
                                 <div class="px-4 py-2 inline-block w-fit min-w-[60px] max-w-[85%] md:max-w-[75%] break-words ${bgClass} text-sm leading-relaxed shadow-sm">
-                                    ${messageText}${editedTag}
+                                    ${decText}${editedTag}
                                     <div class="text-[9px] ${timeColor} mt-0.5 text-right flex items-center justify-end gap-1 font-semibold">
                                         ${time} ${readTicks}
                                     </div>
@@ -1974,7 +2157,6 @@
                 if (newText) {
                     const words = newText.trim().split(/\s+/);
                     if (words.length > 50) return showToast("Maksimum 50 perkataan dibenarkan.", "error");
-
                     await updateDoc(doc(db, 'artifacts', appId, 'public', 'data', colName, id), {
                         text: newText.trim(),
                         isEdited: true
@@ -1997,7 +2179,7 @@
             await addDoc(collection(db, 'artifacts', appId, 'public', 'data', colName), {
                 senderId: currentUser.uid,
                 senderName: userData.fullName,
-                text: text, // Plain text saving (E2E Removed)
+                text: text,
                 timestamp: Date.now(),
                 readBy: [],
                 isEdited: false
@@ -2016,13 +2198,23 @@
             }
         };
 
-        window.openPM = (targetUid, targetName) => {
+        window.openPM = async (targetUid, targetName) => {
             const chatId = [currentUser.uid, targetUid].sort().join('_');
+
+            // Check if there are messages already
+            const colName = `pm_${chatId}`;
+            const checkSnap = await getDoc(doc(db, 'artifacts', appId, 'public', 'data', colName, 'initial_mark')).catch(e => {});
+
             if (!pmsListCache.includes(targetUid)) {
                 pmsListCache.push(targetUid);
-                updateDoc(doc(db, 'artifacts', appId, 'users', currentUser.uid, 'profile', 'main'), {
+                await updateDoc(doc(db, 'artifacts', appId, 'users', currentUser.uid, 'profile', 'main'), {
                     pmContacts: pmsListCache
                 }).catch(e => {});
+
+                // Show "Mulakan Sembang Anda!" alert toast if brand new
+                if (!checkSnap || !checkSnap.exists()) {
+                    showToast("Mulakan Sembang Anda! Hantar mesej pertama mesra ceria.", "info");
+                }
             }
             openChatCore(chatId, targetName, "Peribadi", false);
         };
@@ -2045,7 +2237,7 @@
                     targetAvatar = u.avatarUrl;
                     const isOnline = (Date.now() - u.lastActive) < 120000;
                     document.getElementById('info-status').innerHTML = isOnline ?
-                        `<span class="w-2 h-2 rounded-full bg-emerald-500"></span> Aktif (Sistem)` :
+                        `<span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Aktif (Sistem)` :
                         `<span class="w-2 h-2 rounded-full bg-slate-400"></span> Luar Talian`;
                     statsHTML = `
                         <div class="bg-sky-50 text-sky-600 p-3 rounded-xl font-bold border border-sky-100 flex flex-col justify-center"><span class="text-[10px] text-sky-400 uppercase tracking-widest block mb-0.5">Exp Terkumpul</span>${u.xp} XP</div>
@@ -2122,7 +2314,7 @@
             }
         };
 
-        // RENDER LISTS
+        // RENDER LISTS & DIRECTORY
         const renderLedgerList = (txs) => {
             const list = document.getElementById('transactions-list');
             if (txs.length === 0) return list.innerHTML = `<p class="text-sm text-slate-400 text-center py-6 font-bold">Tiada sejarah transaksi.</p>`;
@@ -2133,7 +2325,7 @@
                     minute: '2-digit'
                 });
                 return `
-                    <div onclick="window.showReceipt('${t.txId}', '${t.description}', ${t.amount}, 0, ${t.timestamp}); updateTaskProgress('view_history');" class="flex justify-between items-center py-3 px-4 hover:bg-slate-50 transition-colors border-b border-slate-50 cursor-pointer">
+                    <div onclick="window.showReceipt('${t.txId}', '${t.description}', ${t.amount}, 0, ${t.timestamp}); updateTaskProgress('view_history');" class="flex justify-between items-center py-3 px-4 hover:bg-slate-50 transition-all border-b border-slate-50 cursor-pointer">
                         <div>
                             <p class="text-xs font-bold text-slate-800">${t.description}</p>
                             <p class="text-[10px] text-slate-400 mt-0.5">${date}</p>
@@ -2148,14 +2340,15 @@
             const list = document.getElementById('friends-list');
             if (friends.length === 0) return list.innerHTML = `<div class="col-span-full text-center py-10 text-sm font-bold text-slate-400">Rangkaian kosong. Tambah kenalan hari ini!</div>`;
             list.innerHTML = friends.map(f => `
-                <div class="bg-white p-4 rounded-2xl soft-shadow border border-slate-100 flex items-center justify-between group">
+                <div class="bg-white p-4 rounded-2xl soft-shadow border border-slate-100 flex items-center justify-between group transform hover:-translate-y-1 transition-transform duration-200">
                     <div>
                         <p class="text-sm font-bold text-slate-800">${f.fullName}</p>
                         <p class="text-xs text-slate-500">${f.email}</p>
                     </div>
                     <div class="flex gap-2">
-                        <button onclick="document.getElementById('send-target-email').value='${f.email}'; switchToTab('kewangan');" class="bg-sky-50 text-sky-600 w-10 h-10 rounded-xl flex items-center justify-center hover:bg-sky-100 transition-colors"><i class="fa-solid fa-paper-plane"></i></button>
-                        <button onclick="deleteFriend('${f.uid}')" class="bg-rose-50 text-rose-500 w-10 h-10 rounded-xl flex items-center justify-center hover:bg-rose-100 transition-colors"><i class="fa-solid fa-trash"></i></button>
+                        <button onclick="openPM('${f.uid}', '${f.fullName}')" class="bg-indigo-50 text-indigo-600 w-10 h-10 rounded-xl flex items-center justify-center hover:bg-indigo-100 transition-colors btn-hover-bounce" title="Mesej Peribadi"><i class="fa-solid fa-comments"></i></button>
+                        <button onclick="document.getElementById('send-target-email').value='${f.email}'; switchToTab('kewangan');" class="bg-sky-50 text-sky-600 w-10 h-10 rounded-xl flex items-center justify-center hover:bg-sky-100 transition-colors btn-hover-bounce" title="Pindah Wang"><i class="fa-solid fa-paper-plane"></i></button>
+                        <button onclick="deleteFriend('${f.uid}')" class="bg-rose-50 text-rose-500 w-10 h-10 rounded-xl flex items-center justify-center hover:bg-rose-100 transition-colors btn-hover-bounce" title="Buang Rakan"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </div>
             `).join('');
@@ -2253,7 +2446,7 @@
             if (activePMUsers.length === 0) return list.innerHTML = `<p class="text-sm text-slate-400 text-center py-10 font-bold">Sembang kosong. Mulakan bicara baru!</p>`;
 
             list.innerHTML = activePMUsers.map(c => `
-                <div class="bg-white p-3.5 rounded-2xl soft-shadow border border-slate-100 flex items-center justify-between group">
+                <div class="bg-white p-3.5 rounded-2xl soft-shadow border border-slate-100 flex items-center justify-between group transform hover:-translate-y-0.5 transition-transform">
                     <div class="flex items-center gap-3 cursor-pointer flex-1" onclick="openPM('${c.uid}', '${c.fullName}')">
                         <img src="${c.avatarUrl}" class="w-12 h-12 rounded-full bg-slate-100 object-cover shadow-sm border border-slate-100">
                         <div>
@@ -2261,7 +2454,7 @@
                             <p class="text-[10px] text-slate-500">${c.username}</p>
                         </div>
                     </div>
-                    <button onclick="deletePM('${c.uid}')" class="w-10 h-10 rounded-xl bg-slate-50 text-slate-400 hover:bg-rose-100 hover:text-rose-500 flex items-center justify-center transition-colors"><i class="fa-solid fa-trash"></i></button>
+                    <button onclick="deletePM('${c.uid}')" class="w-10 h-10 rounded-xl bg-slate-50 text-slate-400 hover:bg-rose-100 hover:text-rose-500 flex items-center justify-center transition-colors btn-hover-bounce"><i class="fa-solid fa-trash"></i></button>
                 </div>
             `).join('');
         };
@@ -2308,6 +2501,7 @@
                 await updateDoc(doc(db, 'artifacts', appId, 'public', 'data', 'usersList', currentUser.uid), {
                     fullName: fn,
                     username: un,
+                    gender: gd,
                     avatarUrl: av
                 });
                 showToast("Profil dikemaskini.", "success");
@@ -2338,7 +2532,7 @@
                 });
                 document.getElementById('vault-input').value = '';
                 updateTaskProgress('invest_1');
-                showToast("Dana dilaburkan. Sila tunggu 24 jam.", "success");
+                addNotification('Pelaburan Dibuat', `Anda melabur RM${val} ke dalam dana harian.`, 'kewangan');
             } catch (e) {
                 showToast(e.message, "error");
             } finally {
@@ -2355,7 +2549,6 @@
 
             showGlobalLoader("Mengira Risiko Pasaran...");
             try {
-                // Random charge -30% to +30%
                 const chargePct = (Math.random() * 0.6) - 0.3;
                 const chargeRM = st * chargePct;
                 const newBase = st + chargeRM;
@@ -2374,7 +2567,6 @@
                     timestamp: Date.now()
                 });
 
-                // Show Result Modal
                 document.getElementById('inv-modal').textContent = `RM ${st.toFixed(2)}`;
 
                 const lbl = document.getElementById('inv-charge-lbl');
@@ -2398,6 +2590,7 @@
                 document.getElementById('inv-total').textContent = `RM ${totalReturn.toFixed(2)}`;
 
                 UI.investmentModal.classList.remove('hidden');
+                addNotification('Dividen Diterima', `Hasil pelaburan anda sebanyak RM${totalReturn.toFixed(2)} berjaya dituntut!`, 'kewangan');
 
             } catch (e) {
                 showToast(e.message, "error");
@@ -2415,7 +2608,7 @@
         document.getElementById('btn-logout').onclick = doLogout;
         document.getElementById('btn-logout-side').onclick = doLogout;
 
-        // TABS
+        // TABS SWITCHING
         window.switchToTab = (tabName) => {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             const target = document.getElementById(`tab-content-${tabName}`);
@@ -2447,6 +2640,9 @@
                     }
                 }
             });
+            // Auto scroll main area to top on tab switch
+            mainScrollArea.scrollTop = 0;
+            resetHeaderTimeout();
         };
 
         document.getElementById('tab-btn-pms').onclick = (e) => {
