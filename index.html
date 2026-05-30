@@ -11,7 +11,7 @@
     <meta name="theme-color" content="#0ea5e9">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BLYNS V10 | Rangkaian Kewangan & Sosial Ceria</title>
+    <title>BLYNS V10.1</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -322,6 +322,23 @@
         .slideshow-img.active {
             opacity: 1;
         }
+
+        /* Chat Bubble Ekstra Menarik */
+        .bubble-gradient-own {
+            background: linear-gradient(135deg, #0ea5e9, #6366f1);
+            color: white;
+            border: none;
+            box-shadow: 0 8px 20px -4px rgba(14, 165, 233, 0.4);
+        }
+
+        .bubble-3d-other {
+            background: #ffffff;
+            color: #0f172a;
+            border: 1px solid #e2e8f0;
+            border-bottom: 4px solid #cbd5e1;
+            border-right: 2px solid #cbd5e1;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
     </style>
 </head>
 
@@ -335,7 +352,7 @@
             <i class="fas fa-cloud text-sky-200 text-6xl absolute"></i>
             <i class="fas fa-sun text-yellow-400 text-3xl animate-spin absolute -top-2 -right-2"></i>
         </div>
-        <p id="loader-text" class="text-sm font-heading font-bold text-sky-600 mt-6 animate-pulse">Menjana Sistem BLYNS V10...</p>
+        <p id="loader-text" class="text-sm font-heading font-bold text-sky-600 mt-6 animate-pulse">Memuat Blyns...</p>
     </div>
 
     <!-- LOCK SCREEN (PIN REQUIRED ON LOGIN) -->
@@ -358,7 +375,7 @@
     <!-- NOTIFICATION DROPDOWN -->
     <div id="notif-dropdown" class="fixed top-20 left-4 md:left-[300px] w-80 bg-white rounded-3xl shadow-2xl border border-slate-100 hidden flex-col overflow-hidden text-sm z-[110] liquid-glass">
         <div class="p-4 border-b border-slate-100/50 font-heading font-bold text-slate-800 flex items-center justify-between gap-2 bg-white/50">
-            <div><i class="fas fa-bell text-sky-500 mr-1"></i> Pemberitahuan V10</div>
+            <div><i class="fas fa-bell text-sky-500 mr-1"></i> Pemberitahuan Terkini:</div>
             <div class="flex gap-2">
                 <button onclick="clearNotifications()" class="text-xs bg-rose-50 text-rose-500 hover:bg-rose-100 px-3 py-1.5 rounded-lg transition-colors font-bold"><i class="fas fa-trash"></i></button>
                 <button onclick="document.getElementById('notif-dropdown').classList.add('hidden')" class="text-xs bg-slate-100 text-slate-600 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition-colors font-bold"><i class="fas fa-xmark"></i></button>
@@ -535,10 +552,10 @@
             <div class="absolute inset-0 bg-white/10" style="background-image: radial-gradient(circle at 20px 20px, rgba(255,255,255,0.2) 2px, transparent 0); background-size: 40px 40px;"></div>
             <div class="relative z-10 space-y-6">
                 <div class="flex items-center gap-3">
-                    <i class="fas fa-leaf text-4xl text-sky-200 animate-bounce"></i>
+                    <i class="fas fa-sun text-yellow-400 text-4xl text-sky-200"></i>
                     <h1 class="text-5xl font-heading font-black tracking-wider">BLYNS <span class="text-sky-200 text-2xl">v10</span></h1>
                 </div>
-                <p class="text-xl font-light leading-relaxed max-w-md">Sistem Rangkaian Kewangan & Sosial Apple UI Architecture. Lebih eksklusif, pantas, dan estetik.</p>
+                <p class="text-xl font-light leading-relaxed max-w-md">Sistem Rangkaian Kewangan & Sosial Lebih eksklusif, pantas, dan estetik.</p>
                 <div class="flex gap-4 pt-4">
                     <span class="bg-white/20 px-4 py-2 rounded-full text-sm backdrop-blur-sm shadow-inner"><i class="fas fa-bolt mr-2 text-yellow-300"></i>Sistem Pantas V10</span>
                     <span class="bg-white/20 px-4 py-2 rounded-full text-sm backdrop-blur-sm shadow-inner"><i class="fas fa-qrcode mr-2"></i>Sokongan QR</span>
@@ -641,7 +658,7 @@
         <aside class="hidden md:flex flex-col w-72 bg-white border-r border-slate-200 shrink-0 z-30 h-full relative shadow-sm">
             <div class="p-6 flex items-center justify-between border-b border-slate-100">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-blue-500 rounded-xl flex items-center justify-center text-white text-xl shadow-md animate-pulse"><i class="fas fa-leaf"></i></div>
+                    <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-blue-500 rounded-xl flex items-center justify-center text-white text-xl shadow-md animate-pulse"><i class="fas fa-sun text-yellow-400"></i></div>
                     <div>
                         <h1 class="text-2xl font-heading font-black text-slate-800 tracking-wide">BLYNS.</h1>
                         <p class="text-[9px] text-sky-500 font-bold uppercase tracking-widest">Sistem V10</p>
@@ -713,7 +730,7 @@
                 </div>
                 <div class="flex items-center gap-2">
                     <span class="font-heading font-black text-slate-800 text-xl tracking-wide">BLYNS.</span>
-                    <div class="w-8 h-8 bg-gradient-to-br from-sky-400 to-blue-500 rounded-lg flex items-center justify-center text-white shadow-sm"><i class="fas fa-leaf"></i></div>
+                    <div class="w-8 h-8 bg-gradient-to-br from-sky-400 to-blue-500 rounded-lg flex items-center justify-center text-white shadow-sm"><i class="fas fa-sun text-yellow-400"></i></div>
                 </div>
             </header>
 
@@ -735,15 +752,9 @@
                         </div>
 
                         <!-- SLIDESHOW CONTAINER -->
-                        <div class="w-full h-40 md:h-56 bg-slate-900 rounded-3xl overflow-hidden relative shadow-lg group">
-                            <div id="slideshow-container" class="absolute inset-0">
-                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80" class="slideshow-img active" alt="Slide 1">
-                            </div>
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
-                                <div>
-                                    <h3 class="text-white font-heading font-bold text-xl drop-shadow-md"><i class="fas fa-bullhorn text-sky-400 mr-2"></i> Makluman Ekosistem V10</h3>
-                                    <p class="text-slate-300 text-xs font-medium mt-1">Sistem Ekonomi & Sosial Apple-Aesthetic kini dilancarkan sepenuhnya.</p>
-                                </div>
+                        <div id="dynamic-slideshow" class="w-full h-40 md:h-56 bg-slate-900 rounded-3xl overflow-hidden relative shadow-lg group">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <i class="fas fa-spinner fa-spin text-slate-500 text-2xl"></i>
                             </div>
                         </div>
 
@@ -1271,10 +1282,21 @@
             <div class="space-y-2">
                 <label class="text-[11px] font-bold text-slate-500 block uppercase">Gaya Gelembung Sembang (Chat Bubble)</label>
                 <select id="profile-bubble-select" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-sm focus:outline-none focus:border-purple-500 font-bold">
-                    <option value="rounded-2xl">Standard Rounded Apple</option>
-                    <option value="rounded-none">Square Geometric</option>
+                    <option value="rounded-2xl">Standard Rounded UI</option>
+                    <option value="bubble-gradient-own">Gradient Premium & 3D Drop</option>
                     <option value="bubble-neon">Neon Glowing Edge</option>
                     <option value="bubble-glass">Liquid Glassmorphism</option>
+                </select>
+            </div>
+
+            <div class="space-y-2">
+                <label class="text-[11px] font-bold text-slate-500 block uppercase">Latar Belakang Chat (Wallpaper)</label>
+                <select id="profile-chatbg-select" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-sm focus:outline-none focus:border-purple-500 font-bold">
+                    <option value="default">Standard Abstrak Biru</option>
+                    <option value="dark-grid">Dark Cyber Grid</option>
+                    <option value="anime-sky">Anime Night Sky</option>
+                    <option value="aesthetic-room">Aesthetic Lo-Fi Room</option>
+                    <option value="minimalist-white">Minimalist White Clean</option>
                 </select>
             </div>
 
@@ -1292,7 +1314,7 @@
             <div class="space-y-4 text-sm text-slate-600 overflow-y-auto pr-2 pb-4">
                 <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
                     <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fas fa-code-branch text-sky-500"></i> Informasi Versi Utama (V10)</h4>
-                    <p class="leading-relaxed">Blyns Ecosystem V10.0.0 (Apple UI Standard Architecture). Didukung oleh simulasi Firebase Real-time Database dan sistem keselamatan PIN enkripsi lokal.</p>
+                    <p class="leading-relaxed">Blyns Ecosystem V10.1.0 (UI Standard Architecture). Didukung oleh simulasi Firebase Real-time Database dan sistem keselamatan PIN enkripsi lokal.</p>
                 </div>
                 <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
                     <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fas fa-shield-halved text-emerald-500"></i> Terma & Syarat Penggunaan</h4>
@@ -1325,6 +1347,7 @@
             doc,
             setDoc,
             getDoc,
+            getDocs,
             addDoc,
             collection,
             onSnapshot,
@@ -2040,6 +2063,18 @@
                     hideGlobalLoader();
                 } else {
                     hideGlobalLoader();
+
+                    // Listeners untuk Notifikasi Global / Mesej Baru secara automatik
+                    onSnapshot(collection(db, 'artifacts', appId, 'public', 'data', `notifications_${user.uid}`), (snap) => {
+                        snap.docChanges().forEach((change) => {
+                            if (change.type === "added") {
+                                const notif = change.doc.data();
+                                sendV10Notification(notif.title, notif.message, notif.type, notif.targetTab);
+                                // Automatik buang dari database lepas dipaparkan supaya database tak semak
+                                deleteDoc(change.doc.ref);
+                            }
+                        });
+                    });
                 }
             });
 
@@ -2117,20 +2152,45 @@
         };
 
         const getRankDetails = (xp) => {
+            if (xp >= 10000) return {
+                title: 'Maharaja V10 💠',
+                salary: 5000
+            };
+            if (xp >= 8500) return {
+                title: 'Raja Empayar 👑',
+                salary: 3500
+            };
+            if (xp >= 7000) return {
+                title: 'Jeneral Kosmik 🌌',
+                salary: 2500
+            };
             if (xp >= 5000) return {
-                title: 'Pemerintah Agung 👑'
+                title: 'Penaung Agung ⚔️',
+                salary: 1500
+            };
+            if (xp >= 3500) return {
+                title: 'Bangsawan Diraja 🏰',
+                salary: 1000
             };
             if (xp >= 2000) return {
-                title: 'Penaung Elit ⚔️'
+                title: 'Aristokrat Elit ⚜️',
+                salary: 600
             };
-            if (xp >= 700) return {
-                title: 'Aristokrat ⚜️'
+            if (xp >= 1000) return {
+                title: 'Saudagar Korporat 💼',
+                salary: 300
+            };
+            if (xp >= 500) return {
+                title: 'Warganegara 🛡️',
+                salary: 150
             };
             if (xp >= 200) return {
-                title: 'Warganegara 🛡️'
+                title: 'Penduduk Tetap 🏘️',
+                salary: 80
             };
             return {
-                title: 'Penduduk 🪙'
+                title: 'Penduduk Baru 🪙',
+                salary: 30
             };
         };
 
@@ -2151,6 +2211,42 @@
                 });
                 sendV10Notification('Musim Baru', 'Sistem Musim: -50 EXP Decay Mingguan.', 'warning');
             }
+        };
+
+        const processV10EconomyRoutine = async (snapshotData) => {
+            const today = new Date().toDateString();
+            if (snapshotData.lastSalaryDate === today) return;
+
+            // Dapatkan gaji berdasarkan fungsi Rank yang baru
+            const rankInfo = getRankDetails(snapshotData.xp || 0);
+            let salary = rankInfo.salary;
+
+            let currentBalance = snapshotData.balance || 0;
+            let debt = snapshotData.debt || 0;
+
+            currentBalance += salary;
+
+            let triggeredPenalty = false;
+            if (Math.random() < 0.05) { // 5% chance penalty
+                currentBalance -= 150;
+                triggeredPenalty = true;
+            }
+
+            if (currentBalance < 0) {
+                debt += Math.abs(currentBalance);
+                currentBalance = 0;
+            }
+
+            await updateDoc(doc(db, 'artifacts', appId, 'users', currentUser.uid, 'profile', 'main'), {
+                balance: currentBalance,
+                debt: debt,
+                lastSalaryDate: today,
+                xp: triggeredPenalty ? Math.max(0, (snapshotData.xp || 0) - 250) : (snapshotData.xp || 0)
+            });
+
+            if (triggeredPenalty) sendV10Notification("Denda Musiman!", "Penalti Ekonomi rawak: -RM150 & -250 EXP.", "error");
+            sendV10Notification("Gaji Dikreditkan", `Gaji peringkat (${rankInfo.title}) sebanyak RM${salary} telah dimasukkan.`, "success");
+            playBlynsSound('reward');
         };
 
         const checkDailyTasksRoutine = async () => {
@@ -2184,44 +2280,6 @@
             }
         };
 
-        const processV10EconomyRoutine = async (snapshotData) => {
-            const today = new Date().toDateString();
-            if (snapshotData.lastSalaryDate === today) return;
-
-            let salary = 20;
-            const xp = snapshotData.xp || 0;
-            if (xp >= 5000) salary = 2000;
-            else if (xp >= 2000) salary = 500;
-            else if (xp >= 700) salary = 100;
-            else if (xp >= 200) salary = 50;
-
-            let currentBalance = snapshotData.balance || 0;
-            let debt = snapshotData.debt || 0;
-
-            currentBalance += salary;
-
-            let triggeredPenalty = false;
-            if (Math.random() < 0.05) { // 5% chance penalty
-                currentBalance -= 150;
-                triggeredPenalty = true;
-            }
-
-            if (currentBalance < 0) {
-                debt += Math.abs(currentBalance);
-                currentBalance = 0;
-            }
-
-            await updateDoc(doc(db, 'artifacts', appId, 'users', currentUser.uid, 'profile', 'main'), {
-                balance: currentBalance,
-                debt: debt,
-                lastSalaryDate: today,
-                xp: triggeredPenalty ? Math.max(0, xp - 250) : xp
-            });
-
-            if (triggeredPenalty) sendV10Notification("Denda Musiman!", "Penalti Ekonomi rawak: -RM150 & -250 EXP.", "error");
-            sendV10Notification("Gaji Dikreditkan", `Gaji peringkat anda sebanyak RM${salary} telah dimasukkan.`, "success");
-            playBlynsSound('reward');
-        };
 
         const verifyV10UserStreak = async (snapshotData) => {
             if (!snapshotData.lastChatDate) return;
@@ -2329,6 +2387,23 @@
             safeSet('profile-aura-select', 'value', userData.customAura || 'none');
             safeSet('profile-frame-select', 'value', userData.customFrame || 'none');
             safeSet('profile-bubble-select', 'value', userData.customBubble || 'rounded-2xl');
+            safeSet('profile-chatbg-select', 'value', userData.customChatBg || 'default'); // KOD BARU
+
+            // KOD BARU: Terapkan Chat Background
+            const chatArea = document.getElementById('chat-messages');
+            if (chatArea) {
+                const bgType = userData.customChatBg || 'default';
+                let bgUrl = "url('https://www.transparenttextures.com/patterns/cubes.png')"; // Default
+                if (bgType === 'dark-grid') bgUrl = "url('https://www.transparenttextures.com/patterns/carbon-fibre.png'), linear-gradient(to bottom, #0f172a, #1e293b)";
+                if (bgType === 'anime-sky') bgUrl = "url('https://i.pinimg.com/originals/f3/d9/80/f3d98031dcfd5eb6ea4b971a1c97a5b3.gif')";
+                if (bgType === 'aesthetic-room') bgUrl = "url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000&auto=format&fit=crop')";
+                if (bgType === 'minimalist-white') bgUrl = "none";
+
+                chatArea.style.backgroundImage = bgUrl;
+                chatArea.style.backgroundSize = "cover";
+                chatArea.style.backgroundPosition = "center";
+                chatArea.style.backgroundColor = bgType === 'minimalist-white' ? "#ffffff" : "var(--bg-body)";
+            }
 
             // Apply Auras/Frames globally to profile pics
             const profileImg = document.getElementById('profile-avatar');
@@ -2727,11 +2802,14 @@
                             ${imgBlock}
                         </div>
                         <div class="flex gap-2 pt-3 border-t border-slate-100 mt-1">
-                            <button onclick="interactPost('${p.id}', 'love')" class="${hasLoved ? 'bg-rose-100 text-rose-500' : 'bg-slate-50 text-slate-500 hover:bg-slate-100'} text-xs font-bold px-4 py-2 rounded-xl transition-colors flex items-center gap-1.5 btn-hover-bounce">
-                                <i class="${hasLoved ? 'fas' : 'far'} fa-heart"></i> ${(p.loves || []).length} Suka
+                            <button onclick="interactPost('${p.id}', 'love', '${p.userId}')" class="${hasLoved ? 'bg-rose-100 text-rose-500' : 'bg-slate-50 text-slate-500 hover:bg-slate-100'} text-xs font-bold px-4 py-2 rounded-xl transition-colors flex items-center gap-1.5 btn-hover-bounce">
+                                <i class="${hasLoved ? 'fas' : 'far'} fa-heart"></i> ${(p.loves || []).length}
                             </button>
-                            <button onclick="openComments('${p.id}')" class="bg-slate-50 text-slate-500 hover:bg-slate-100 text-xs font-bold px-4 py-2 rounded-xl transition-colors flex items-center gap-1.5 btn-hover-bounce">
-                                <i class="far fa-comment"></i> Komen
+                            <button onclick="interactPost('${p.id}', 'dislike', '${p.userId}')" class="${(p.dislikes || []).includes(currentUser.uid) ? 'bg-slate-200 text-slate-700' : 'bg-slate-50 text-slate-500 hover:bg-slate-100'} text-xs font-bold px-4 py-2 rounded-xl transition-colors flex items-center gap-1.5 btn-hover-bounce">
+                                <i class="fas fa-thumbs-down"></i> ${(p.dislikes || []).length}
+                            </button>
+                            <button onclick="openComments('${p.id}')" class="bg-slate-50 text-sky-500 hover:bg-sky-50 text-xs font-bold px-4 py-2 rounded-xl transition-colors flex items-center gap-1.5 btn-hover-bounce ml-auto">
+                                <i class="far fa-comment"></i> ${(p.commentCount || 0)} Komen
                             </button>
                         </div>
                     </div>
@@ -2746,24 +2824,48 @@
             });
         };
 
-        window.interactPost = async (id, action) => {
+        window.interactPost = async (id, action, authorId) => {
+            // Block Like Jurnal Sendiri
+            if (authorId === currentUser.uid) {
+                return showToast("Anda tidak boleh react pada jurnal sendiri.", "warning");
+            }
+
             const ref = doc(db, 'artifacts', appId, 'public', 'data', 'feed', id);
             const snap = await getDoc(ref);
             if (!snap.exists()) return;
             const data = snap.data();
 
             let loves = data.loves || [];
+            let dislikes = data.dislikes || [];
+
             if (action === 'love') {
-                if (loves.includes(currentUser.uid)) loves = loves.filter(u => u !== currentUser.uid);
-                else {
+                if (loves.includes(currentUser.uid)) {
+                    loves = loves.filter(u => u !== currentUser.uid);
+                } else {
                     loves.push(currentUser.uid);
+                    dislikes = dislikes.filter(u => u !== currentUser.uid); // Buang dari dislike jika ada
                     updateTaskProgress('like_3');
                     playBlynsSound('send');
-                    // Notification Logic Note: Can be simulated here
+
+                    // Notif kepada pemilik jurnal
+                    addDoc(collection(db, 'artifacts', appId, 'public', 'data', `notifications_${authorId}`), {
+                        title: "Jurnal Disukai!",
+                        message: `${userData.fullName} menyukai jurnal anda.`,
+                        type: "info",
+                        targetTab: "feed"
+                    });
+                }
+            } else if (action === 'dislike') {
+                if (dislikes.includes(currentUser.uid)) {
+                    dislikes = dislikes.filter(u => u !== currentUser.uid);
+                } else {
+                    dislikes.push(currentUser.uid);
+                    loves = loves.filter(u => u !== currentUser.uid); // Buang dari love jika ada
                 }
             }
             await updateDoc(ref, {
-                loves
+                loves,
+                dislikes
             });
         };
 
@@ -2819,6 +2921,7 @@
             if (!text) return;
 
             document.getElementById('comment-input').value = '';
+            // Tambah Komen
             await addDoc(collection(db, 'artifacts', appId, 'public', 'data', `feed_${currentCommentPostId}_comments`), {
                 userId: currentUser.uid,
                 author: userData.fullName,
@@ -2826,6 +2929,24 @@
                 text: text,
                 timestamp: Date.now()
             });
+
+            // Tambah Comment Count pada Jurnal
+            const feedRef = doc(db, 'artifacts', appId, 'public', 'data', 'feed', currentCommentPostId);
+            const feedSnap = await getDoc(feedRef);
+            if (feedSnap.exists()) {
+                await updateDoc(feedRef, {
+                    commentCount: (feedSnap.data().commentCount || 0) + 1
+                });
+                // Hantar Notif ke pembuat jurnal
+                if (feedSnap.data().userId !== currentUser.uid) {
+                    addDoc(collection(db, 'artifacts', appId, 'public', 'data', `notifications_${feedSnap.data().userId}`), {
+                        title: "Komen Baru!",
+                        message: `${userData.fullName} mengomen: "${text}"`,
+                        type: "info"
+                    });
+                }
+            }
+
             updateTaskProgress('comment_1');
             playBlynsSound('send');
         };
@@ -2945,59 +3066,75 @@
 
                     const alignClass = isOwn ? 'ml-auto items-end' : 'mr-auto items-start';
 
-                    // Bubble Style Customization
+                    // Pengurusan Gaya Buih (Bubble Customization)
                     let bgClass = isOwn ? 'bg-gradient-to-br from-sky-500 to-blue-600 text-white shadow-md border border-sky-400' : 'bg-white text-slate-800 shadow-sm border border-slate-200';
                     let roundedClass = isOwn ? 'rounded-l-2xl rounded-tr-2xl' : 'rounded-r-2xl rounded-tl-2xl';
+
                     if (userData.customBubble) {
                         if (userData.customBubble === 'rounded-none') roundedClass = 'rounded-md';
                         if (userData.customBubble === 'bubble-neon' && isOwn) bgClass += ' bubble-neon';
                         if (userData.customBubble === 'bubble-glass') bgClass = 'bubble-glass';
+                        if (userData.customBubble === 'bubble-gradient-own') {
+                            bgClass = isOwn ? 'bubble-gradient-own' : 'bubble-3d-other';
+                            roundedClass = isOwn ? 'rounded-2xl rounded-br-sm' : 'rounded-2xl rounded-bl-sm';
+                        }
                     }
 
                     const nameColor = isOwn ? 'text-sky-500' : 'text-slate-500';
                     const timeColor = isOwn ? 'text-sky-100' : 'text-slate-400';
 
-                    // Reactions Bar Render
+                    // Reaksi Bar (Reacts)
                     let reactsHtml = '';
                     if (m.reactions && Object.keys(m.reactions).length > 0) {
-                        reactsHtml = `<div class="absolute -bottom-3 ${isOwn? 'right-2' : 'left-2'} bg-white border border-slate-200 rounded-full px-2 py-0.5 shadow-sm text-[10px] flex gap-1 z-10">`;
+                        reactsHtml = `<div class="absolute -bottom-3 ${isOwn ? 'right-2' : 'left-2'} bg-white border border-slate-200 rounded-full px-2 py-0.5 shadow-sm text-[10px] flex gap-1 z-10">`;
                         for (let r in m.reactions) {
                             if (m.reactions[r].length > 0) reactsHtml += `<span class="cursor-pointer" onclick="reactToMessageV10('${colName}', '${m.id}', '${r}')"><i class="${r} text-rose-500"></i> ${m.reactions[r].length}</span>`;
                         }
                         reactsHtml += `</div>`;
                     }
 
-                    const optionsMenu = `
-                        <div class="absolute top-1 ${isOwn ? '-left-[90px]' : '-right-[90px]'} opacity-0 group-hover:opacity-100 transition-opacity flex gap-1 z-20">
-                            ${isOwn ? `<button onclick="editMsg('${m.id}', '${colName}')" class="text-slate-400 hover:text-sky-500 text-[10px] bg-white rounded-full w-7 h-7 shadow-md border border-slate-100"><i class="fas fa-pen"></i></button>
-                            <button onclick="deleteMsg('${m.id}', '${colName}')" class="text-slate-400 hover:text-rose-500 text-[10px] bg-white rounded-full w-7 h-7 shadow-md border border-slate-100"><i class="fas fa-trash"></i></button>` : ''}
-                            <button onclick="reactToMessageV10('${colName}', '${m.id}', 'fas fa-heart')" class="text-slate-400 hover:text-rose-500 text-[10px] bg-white rounded-full w-7 h-7 shadow-md border border-slate-100"><i class="fas fa-heart"></i></button>
-                        </div>
-                    `;
-
-                    // Sender Info
+                    // Sender Info Dideklarasikan SEBELUM Return (Ini fix untuk error tadi)
                     let senderInfo = '';
                     if (!isOwn && isLounge) {
                         const senderUser = allUsers.find(u => u.uid === m.senderId);
                         const senderAva = senderUser ? senderUser.avatarUrl : generateAvatarURL(m.senderName);
-                        senderInfo = `<div class="flex items-center gap-1.5 mb-1 px-1 cursor-pointer hover:opacity-80" onclick="openPM('${m.senderId}', '${m.senderName}')">
-                                        <img src="${senderAva}" class="w-4 h-4 rounded-full border border-slate-200 object-cover">
-                                        <span class="text-[10px] font-bold ${nameColor}">${m.senderName}</span>
-                                      </div>`;
+                        senderInfo = `
+                            <div class="flex items-center gap-1.5 mb-1 px-1 cursor-pointer hover:opacity-80" onclick="openPM('${m.senderId}', '${m.senderName}')">
+                                <img src="${senderAva}" class="w-4 h-4 rounded-full border border-slate-200 object-cover shadow-sm">
+                                <span class="text-[10px] font-bold ${nameColor} drop-shadow-sm">${m.senderName}</span>
+                            </div>
+                        `;
                     }
 
+                    const optionsMenu = `
+                        <div class="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 z-20 mx-2">
+                            ${isOwn ? 
+                                `<button onclick="editMsg('${m.id}', '${colName}')" title="Edit" class="text-slate-400 hover:text-sky-500 text-[10px] bg-white rounded-full w-7 h-7 shadow-md border border-slate-100 flex items-center justify-center transition-transform hover:scale-110"><i class="fas fa-pen"></i></button>
+                                 <button onclick="deleteMsg('${m.id}', '${colName}')" title="Padam" class="text-slate-400 hover:text-rose-500 text-[10px] bg-white rounded-full w-7 h-7 shadow-md border border-slate-100 flex items-center justify-center transition-transform hover:scale-110"><i class="fas fa-trash"></i></button>` 
+                            : 
+                                `<button onclick="reactToMessageV10('${colName}', '${m.id}', 'fas fa-heart')" title="Suka" class="text-slate-400 hover:text-rose-500 text-[10px] bg-white rounded-full w-7 h-7 shadow-md border border-slate-100 flex items-center justify-center transition-transform hover:scale-110"><i class="fas fa-heart"></i></button>`
+                            }
+                        </div>
+                    `;
+
+                    // Semua dicantumkan dalam Return
                     return `
-                        <div class="w-full flex flex-col ${alignClass} mb-4 relative group px-2 md:px-4">
+                        <div class="w-full flex flex-col ${alignClass} mb-5 group px-2 md:px-4">
                             ${senderInfo}
-                            <div class="relative w-full flex flex-col ${alignClass}">
-                                ${optionsMenu}
-                                <div class="px-4 py-2.5 inline-block w-fit min-w-[70px] max-w-[85%] md:max-w-[70%] break-words ${bgClass} ${roundedClass} text-sm leading-relaxed relative">
-                                    ${contentHtml}${editedTag}
-                                    <div class="text-[9px] ${timeColor} mt-1 text-right flex items-center justify-end gap-1 font-bold">
-                                        ${time} ${readTicks}
+                            <div class="relative flex ${isOwn ? 'flex-row-reverse' : 'flex-row'} items-end">
+                                
+                                <div class="px-4 py-3 inline-block w-fit min-w-[70px] max-w-[85%] md:max-w-[70%] break-words ${bgClass} ${roundedClass} text-sm leading-relaxed relative z-10 backdrop-blur-sm">
+                                    ${contentHtml}
+                                    ${editedTag}
+                                    <div class="text-[9px] ${timeColor} mt-1.5 text-right flex items-center justify-end gap-1 font-bold">
+                                        ${time}
+                                        ${readTicks}
                                     </div>
                                     ${reactsHtml}
                                 </div>
+                                
+                                ${optionsMenu}
+                                
                             </div>
                         </div>
                     `;
@@ -3048,10 +3185,24 @@
 
         window.confirmDeleteActiveGroup = async () => {
             if (!currentActiveGroupId) return;
-            showConfirm("Adakah anda pasti mahu memadam kumpulan chat ini secara kekal? Tindakan tidak boleh dikembalikan.", async () => {
-                await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'groups', currentActiveGroupId));
-                showToast("Kumpulan berjaya dipadam.", "success");
-                document.getElementById('btn-close-chat').click();
+            showConfirm("Pasti nak padam kumpulan ini? SEMUA mesej di dalamnya akan dipadam sepenuhnya.", async () => {
+                showGlobalLoader("Memadam Kumpulan & Mesej...");
+                try {
+                    // KOD DIBETULKAN: Path pencarian mesej
+                    const msgSnap = await getDocs(collection(db, 'artifacts', appId, 'public', 'data', `chat_${currentActiveGroupId}`));
+                    msgSnap.forEach(async (d) => {
+                        await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', `chat_${currentActiveGroupId}`, d.id));
+                    });
+
+                    await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'groups', currentActiveGroupId));
+
+                    showToast("Kumpulan dan data mesej berjaya dipadam sepenuhnya.", "success");
+                    document.getElementById('btn-close-chat').click();
+                } catch (e) {
+                    showToast("Ralat ketika memadam kumpulan.", "error");
+                } finally {
+                    hideGlobalLoader();
+                }
             });
         };
 
@@ -3064,6 +3215,8 @@
 
             chatInput.value = '';
             wordCountDisplay.textContent = '0/50';
+
+            // KOD DIBETULKAN: Nama collection tanpa jarak yang merosakkan
             const colName = isLoungeChat ? `chat_${currentActiveGroupId}` : `pm_${currentActiveGroupId}`;
 
             await addDoc(collection(db, 'artifacts', appId, 'public', 'data', colName), {
@@ -3077,6 +3230,23 @@
             updateTaskProgress('chat_5');
             triggerChatStreakIncrement();
             playBlynsSound('send');
+
+            // KOD DIBETULKAN: Logik Auto-PM dan Notifikasi
+            if (!isLoungeChat) {
+                const targetUid = currentActiveGroupId.split('_').find(id => id !== currentUser.uid);
+
+                const receiverRef = doc(db, 'artifacts', appId, 'users', targetUid, 'profile', 'main');
+                updateDoc(receiverRef, {
+                    pmContacts: arrayUnion(currentUser.uid)
+                }).catch(e => {});
+
+                addDoc(collection(db, 'artifacts', appId, 'public', 'data', `notifications_${targetUid}`), {
+                    title: "Mesej Baru!",
+                    message: `${userData.fullName}: ${text.substring(0, 30)}...`,
+                    type: "info",
+                    targetTab: `chatroom_${currentUser.uid}`
+                });
+            }
         };
 
         window.openGroupChat = (id, name, pass) => {
@@ -3094,7 +3264,10 @@
 
         window.openPM = async (targetUid, targetName) => {
             const chatId = [currentUser.uid, targetUid].sort().join('_');
+
+            // KOD DIBETULKAN: Nama PM diletakkan dengan betul
             const colName = `pm_${chatId}`;
+
             const checkSnap = await getDoc(doc(db, 'artifacts', appId, 'public', 'data', colName, 'initial_mark')).catch(e => {});
 
             if (!pmsListCache.includes(targetUid)) {
@@ -3114,7 +3287,10 @@
                 const g = allLounges.find(x => x.id === currentActiveGroupId);
                 targetTitle = g.name;
                 targetSub = g.password ? "Kumpulan Peribadi" : "Kumpulan Awam";
+
+                // KOD DIBETULKAN: Pautan avatar dibersihkan
                 targetAvatar = `https://robohash.org/${g.name}?set=set3&bgset=bg2`;
+
                 statsHTML = `<div class="col-span-2 bg-slate-50 p-3 rounded-xl text-slate-600 font-bold text-xs border border-slate-100">Kumpulan V10 Laju</div>`;
             } else {
                 const targetUid = currentActiveGroupId.split('_').find(id => id !== currentUser.uid);
@@ -3637,32 +3813,44 @@
             if (userData.balance < amt) return showToast("Baki tidak mencukupi.", "error");
 
             const unlockTimestamp = new Date(dateStr).getTime();
-            if (unlockTimestamp <= Date.now()) return showToast("Tarikh mesti di masa hadapan.", "error");
+            const now = Date.now();
+            if (unlockTimestamp <= now) return showToast("Tarikh mesti di masa hadapan.", "error");
 
-            await addDoc(collection(db, 'artifacts', appId, 'users', currentUser.uid, 'vaults'), {
-                amount: amt,
-                unlockDate: unlockTimestamp,
-                timestamp: Date.now(),
-                isUnlocked: false
-            });
+            // Kira peratusan untung: 5% asas + 0.1% untuk setiap hari tambahan
+            const diffDays = Math.ceil((unlockTimestamp - now) / (1000 * 60 * 60 * 24));
+            const profitPct = 0.05 + (diffDays * 0.001);
+            const estimatedReturn = amt + (amt * profitPct);
 
-            await updateDoc(doc(db, 'artifacts', appId, 'users', currentUser.uid, 'profile', 'main'), {
-                balance: userData.balance - amt
-            });
-            document.getElementById('vault-modal').classList.add('hidden');
-            updateTaskProgress('vault_lock');
-            showToast("Dana berjaya dikunci dalam Vault!", "success");
-            playBlynsSound('send');
-        };
-
-        window.listenV10Vaults = (uid) => {
-            onSnapshot(collection(db, 'artifacts', appId, 'users', uid, 'vaults'), (snap) => {
-                let totalVault = 0;
-                snap.forEach(d => {
-                    if (!d.data().isUnlocked) totalVault += d.data().amount;
+            showGlobalLoader("Menyimpan & Mengira ROI...");
+            try {
+                // Simpan maklumat ke dalam Firebase
+                await addDoc(collection(db, 'artifacts', appId, 'users', currentUser.uid, 'vaults'), {
+                    amount: amt,
+                    estimatedReturn: estimatedReturn, // Nilai lepas faedah
+                    profitPercent: (profitPct * 100).toFixed(2),
+                    unlockDate: unlockTimestamp,
+                    timestamp: now,
+                    isUnlocked: false
                 });
-                document.getElementById('vault-overview').textContent = `RM ${totalVault.toFixed(2)}`;
-            });
+
+                // Potong baki wang user
+                await updateDoc(doc(db, 'artifacts', appId, 'users', currentUser.uid, 'profile', 'main'), {
+                    balance: userData.balance - amt
+                });
+
+                // KOD BARU: Kosongkan input selepas berjaya
+                document.getElementById('vault-amount').value = '';
+                document.getElementById('vault-unlock-date').value = '';
+
+                document.getElementById('vault-modal').classList.add('hidden');
+                updateTaskProgress('vault_lock');
+                showToast(`Berjaya! Pulangan pada tarikh tamat: RM${estimatedReturn.toFixed(2)}`, "success");
+                playBlynsSound('send');
+            } catch (e) {
+                showToast("Ralat menyimpan dana.", "error");
+            } finally {
+                hideGlobalLoader();
+            }
         };
 
         // --- GAYA PROFIL V10 ---
@@ -3671,12 +3859,14 @@
             const aura = document.getElementById('profile-aura-select').value;
             const frame = document.getElementById('profile-frame-select').value;
             const bubble = document.getElementById('profile-bubble-select').value;
+            const chatBg = document.getElementById('profile-chatbg-select').value; // KOD BARU
 
             await updateDoc(doc(db, 'artifacts', appId, 'users', currentUser.uid, 'profile', 'main'), {
                 customBio: bio,
                 customAura: aura,
                 customFrame: frame,
-                customBubble: bubble
+                customBubble: bubble,
+                customChatBg: chatBg // KOD BARU
             });
             document.getElementById('profile-custom-modal').classList.add('hidden');
             updateTaskProgress('update_bio');
@@ -3723,36 +3913,145 @@
             onSnapshot(collection(db, 'artifacts', appId, 'public', 'data', 'stories'), (snap) => {
                 const container = document.getElementById('story-render-container');
                 const limit24h = Date.now() - (24 * 60 * 60 * 1000);
-                const stories = [];
-                snap.forEach(d => {
-                    if (d.data().timestamp >= limit24h) stories.push({
-                        id: d.id,
-                        ...d.data()
-                    });
-                });
-                stories.sort((a, b) => b.timestamp - a.timestamp);
 
-                container.innerHTML = stories.map(s => `
-                    <div class="flex flex-col items-center shrink-0 cursor-pointer relative group" onclick="showPrompt('Status ${s.userName}', '${s.text}', '', ()=>{})">
-                        <img src="${s.userAvatar}" class="w-12 h-12 rounded-full border-[3px] border-sky-400 p-0.5 object-cover">
-                        <span class="text-[9px] font-bold text-slate-700 mt-1 truncate w-14 text-center">${s.userName.split(' ')[0]}</span>
+                // Gunakan objek untuk "Stacking" (Kumpul ikut User)
+                const groupedStories = {};
+
+                snap.forEach(d => {
+                    const data = d.data();
+                    if (data.timestamp >= limit24h) {
+                        if (!groupedStories[data.userId]) {
+                            groupedStories[data.userId] = {
+                                userId: data.userId,
+                                userName: data.userName,
+                                userAvatar: data.userAvatar,
+                                items: []
+                            };
+                        }
+                        groupedStories[data.userId].items.push({
+                            id: d.id,
+                            ...data
+                        });
+                    }
+                });
+
+                const userCircles = Object.values(groupedStories).map(userGroup => {
+                    userGroup.items.sort((a, b) => b.timestamp - a.timestamp); // Susun yang terbaru
+                    return userGroup;
+                });
+
+                container.innerHTML = userCircles.map(u => {
+                    return `
+                    <div class="flex flex-col items-center shrink-0 cursor-pointer relative group" onclick="openStoryViewer('${u.userId}')">
+                        <img src="${u.userAvatar}" class="w-12 h-12 rounded-full border-[3px] border-sky-400 p-0.5 object-cover">
+                        <span class="absolute -top-1 -right-1 bg-rose-500 text-white text-[9px] rounded-full w-4 h-4 flex items-center justify-center font-bold">${u.items.length}</span>
+                        <span class="text-[9px] font-bold text-slate-700 mt-1 truncate w-14 text-center">${u.userName.split(' ')[0]}</span>
                     </div>
-                 `).join('');
+                    `;
+                }).join('');
+
+                // Simpan secara global supaya boleh diakses bila klik
+                window.currentStoriesData = groupedStories;
             });
         };
 
-        // --- DASHBOARD SLIDESHOW ---
+        // Fungsi baru untuk lihat status (Delete jika sendiri, Reply jika orang lain)
+        window.openStoryViewer = (userId) => {
+            const group = window.currentStoriesData[userId];
+            if (!group) return;
+
+            const latestStory = group.items[0]; // Ambil status teratas/terkini
+            const isOwn = userId === currentUser.uid;
+
+            if (isOwn) {
+                showConfirm(`Status Terkini Anda:\n"${latestStory.text}"\n\nMahu padam status ini?`, async () => {
+                    await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'stories', latestStory.id));
+                    showToast("Status dipadam.", "success");
+                });
+            } else {
+                showConfirm(`Status ${group.userName}:\n"${latestStory.text}"\n\nBalas status ini ke Mesej Peribadi?`, () => {
+                    openPM(userId, group.userName);
+                    setTimeout(() => {
+                        const chatInput = document.getElementById('chat-input-text');
+                        chatInput.value = `Reply Status Anda: "${latestStory.text}"\n`;
+                        chatInput.focus();
+                    }, 500);
+                });
+            }
+        };
+
+        // --- DASHBOARD SLIDESHOW (FIREBASE DYNAMIC) ---
         window.initSlideshow = () => {
-            // Using a simple interval to cycle default images
-            let currentIdx = 0;
-            setInterval(() => {
-                const slides = document.querySelectorAll('.slideshow-img');
-                if (slides.length > 0) {
-                    slides.forEach(s => s.classList.remove('active'));
-                    currentIdx = (currentIdx + 1) % slides.length;
-                    slides[currentIdx].classList.add('active');
+            // Dengar (listen) data dari Firebase: artifacts -> blyns-v10-eco -> public -> data -> slideshows
+            onSnapshot(collection(db, 'artifacts', appId, 'public', 'data', 'slideshows'), (snap) => {
+                const slides = [];
+                snap.forEach(d => slides.push(d.data()));
+
+                const container = document.getElementById('dynamic-slideshow');
+                if (!container) return;
+
+                // Jika belum ada data letak dalam Firebase, papar default fallback
+                if (slides.length === 0) {
+                    container.innerHTML = `
+                                            <div class="absolute inset-0">
+                                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover">
+                                            </div>
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                                                <div>
+                                                    <h3 class="text-white font-heading font-bold text-xl drop-shadow-md"><i class="fas fa-bullhorn text-sky-400 mr-2"></i> Tiada Makluman Baru</h3>
+                                                    <p class="text-slate-300 text-xs font-medium mt-1">Menunggu kemaskini data dari Firebase.</p>
+                                                </div>
+                                            </div>
+                                        `;
+                    return;
                 }
-            }, 5000);
+
+                // Paparkan semua slide dari Firebase
+                container.innerHTML = slides.map((s, i) => `
+                                        <div class="slide-item absolute inset-0 transition-opacity duration-1000 ${i === 0 ? 'opacity-100' : 'opacity-0'}">
+                                            <img src="${s.imageUrl}" class="w-full h-full object-cover">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                                                <div>
+                                                    <h3 class="text-white font-heading font-bold text-xl drop-shadow-md"><i class="fas fa-bullhorn text-sky-400 mr-2"></i> ${s.title || ''}</h3>
+                                                    <p class="text-slate-300 text-xs font-medium mt-1">${s.text || ''}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `).join('');
+
+                // Sistem pusingan (rotation) automatik setiap 5 saat
+                if (window.slideInterval) clearInterval(window.slideInterval);
+                let currentIdx = 0;
+                const slideElements = container.querySelectorAll('.slide-item');
+
+                if (slideElements.length > 1) {
+                    window.slideInterval = setInterval(() => {
+                        slideElements[currentIdx].classList.replace('opacity-100', 'opacity-0');
+                        currentIdx = (currentIdx + 1) % slideElements.length;
+                        slideElements[currentIdx].classList.replace('opacity-0', 'opacity-100');
+                    }, 5000); // 5000ms = 5 Saat
+                }
+            });
+        };
+        // --- FIX: DEFINISI VAULT LISTENER ---
+        window.listenV10Vaults = () => {
+            if (!currentUser) return;
+            onSnapshot(collection(db, 'artifacts', appId, 'users', currentUser.uid, 'vaults'), (snap) => {
+                let totalVault = 0;
+                snap.forEach(d => {
+                    const data = d.data();
+                    // Kira duit yang belum di-unlock sahaja
+                    if (!data.isUnlocked) {
+                        totalVault += data.amount;
+                    }
+                });
+
+                // Update ke HTML paparan Vault
+                const vaultDisplay = document.getElementById('vault-overview');
+                if (vaultDisplay) {
+                    vaultDisplay.textContent = `RM ${totalVault.toFixed(2)}`;
+                }
+            });
         };
     </script>
 </body>
