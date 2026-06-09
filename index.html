@@ -19,7 +19,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome untuk ikon berkualiti tinggi -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
     <script>
         tailwind.config = {
             theme: {
@@ -42,16 +42,13 @@
         ::-webkit-scrollbar {
             width: 8px;
         }
-
         ::-webkit-scrollbar-track {
             background: #000000;
         }
-
         ::-webkit-scrollbar-thumb {
             background: #1f2937;
             border-radius: 9999px;
         }
-
         ::-webkit-scrollbar-thumb:hover {
             background: #374151;
         }
@@ -82,11 +79,11 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 2px solid rgba(255, 255, 255, 0.3);
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
-                0 0 40px rgba(2, 132, 199, 0.8);
-            box-shadow: 0 0 35px rgba(2, 132, 199, 0.4),
-                0 0 70px rgba(249, 115, 22, 0.3),
-                inset 0 0 20px rgba(255, 255, 255, 0.2);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 
+                         0 0 40px rgba(2, 132, 199, 0.8);
+            box-shadow: 0 0 35px rgba(2, 132, 199, 0.4), 
+                        0 0 70px rgba(249, 115, 22, 0.3), 
+                        inset 0 0 20px rgba(255, 255, 255, 0.2);
             animation: auraPulse 5s infinite alternate;
         }
 
@@ -100,12 +97,10 @@
                 box-shadow: 0 0 30px rgba(2, 132, 199, 0.35), 0 0 55px rgba(249, 115, 22, 0.25), inset 0 0 15px rgba(255, 255, 255, 0.15);
                 border-color: rgba(2, 132, 199, 0.4);
             }
-
             50% {
                 box-shadow: 0 0 45px rgba(234, 179, 8, 0.5), 0 0 85px rgba(2, 132, 199, 0.5), inset 0 0 25px rgba(255, 255, 255, 0.3);
                 border-color: rgba(234, 179, 8, 0.6);
             }
-
             100% {
                 box-shadow: 0 0 30px rgba(249, 115, 22, 0.35), 0 0 55px rgba(234, 179, 8, 0.25), inset 0 0 15px rgba(255, 255, 255, 0.15);
                 border-color: rgba(249, 115, 22, 0.4);
@@ -114,24 +109,13 @@
 
         /* Latar Belakang Ombak Ambient */
         @keyframes pulseGlow {
-
-            0%,
-            100% {
-                opacity: 0.25;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.5;
-                transform: scale(1.08);
-            }
+            0%, 100% { opacity: 0.25; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.08); }
         }
-
         .ambient-glow-blue {
             filter: blur(150px);
             animation: pulseGlow 14s ease-in-out infinite alternate;
         }
-
         .ambient-glow-orange {
             filter: blur(150px);
             animation: pulseGlow 17s ease-in-out infinite alternate-reverse;
@@ -139,22 +123,18 @@
 
         /* Kesan Shimmer Berkembar */
         .shimmer {
-            background: linear-gradient(90deg,
-                    rgba(255, 255, 255, 0) 0%,
-                    rgba(255, 255, 255, 0.03) 50%,
-                    rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(
+                90deg,
+                rgba(255,255,255,0) 0%,
+                rgba(255,255,255,0.03) 50%,
+                rgba(255,255,255,0) 100%
+            );
             background-size: 200% 100%;
             animation: shimmerEffect 5s infinite linear;
         }
-
         @keyframes shimmerEffect {
-            0% {
-                background-position: -200% 0;
-            }
-
-            100% {
-                background-position: 200% 0;
-            }
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
 
         #waveCanvas {
@@ -168,13 +148,12 @@
         }
     </style>
 </head>
-
 <body class="bg-black text-white font-sans antialiased overflow-x-hidden relative min-h-screen flex flex-col justify-between selection:bg-brandSunset/30 selection:text-orange-200">
 
     <!-- Interactive Background Layers -->
     <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div class="absolute inset-0 bg-black"></div>
-
+        
         <!-- Ambient Glowing Orbs -->
         <div class="absolute -top-[15%] -left-[10%] w-[65%] h-[60%] rounded-full bg-brandBlue/10 ambient-glow-blue"></div>
         <div class="absolute top-[40%] -right-[10%] w-[60%] h-[60%] rounded-full bg-brandSunset/10 ambient-glow-orange"></div>
@@ -199,7 +178,7 @@
 
     <!-- Main Hero Body Section -->
     <main class="relative z-10 w-full max-w-7xl mx-auto px-6 py-12 flex flex-col items-center justify-center text-center my-auto">
-
+        
         <!-- "One More Thing" Signature Phrase -->
         <div class="mb-5 inline-block transform hover:scale-105 transition-transform duration-300">
             <span class="text-sm md:text-base font-extrabold tracking-[0.3em] uppercase text-zinc-300 bg-gradient-to-r from-zinc-400 via-zinc-100 to-zinc-400 bg-clip-text text-transparent">
@@ -234,10 +213,10 @@
         </div>
 
         <!-- Standalone Community & Beta Apple-like Informational Card -->
-        <div class="glass-panel p-8 md:p-10 rounded-[2.5rem] max-w-4xl w-full mb-14 text-left relative overflow-hidden border-white/5 shadow-2xl">
+        <div class="glass-panel p-8 md:p-10 rounded-[2.5rem] max-w-4xl w-full mb-12 text-left relative overflow-hidden border-white/5 shadow-2xl">
             <!-- Subtle internal glow -->
             <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-brandBlue/5 filter blur-3xl pointer-events-none"></div>
-
+            
             <div class="relative z-10 flex flex-col lg:flex-row gap-8 items-start justify-between">
                 <!-- Highlight Icon & Title -->
                 <div class="flex items-center space-x-5 shrink-0">
@@ -257,7 +236,7 @@
                     <p class="text-sm md:text-base text-zinc-300 leading-relaxed font-normal">
                         Blyns direkayasa secara teliti sebagai sebuah ekosistem <span class="text-white font-semibold">Standalone Community</span> yang mandiri sepenuhnya. Fasa pengujian Beta awal ini dibuka secara terhad kepada hanya <span class="text-brandSand font-bold">100 pengguna terpilih di Sabah</span>.
                     </p>
-
+                    
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 border-t border-white/5 pt-6">
                         <div class="flex flex-col">
                             <span class="text-xs font-bold text-white tracking-wide uppercase flex items-center gap-2">
@@ -280,101 +259,67 @@
             </div>
         </div>
 
-        <!-- Futuristic Twin Countdown Containers -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl w-full mb-14">
-
-            <!-- COUNTDOWN 1: BLYNS V26 CONFERENCE (10 June 2026) -->
-            <div class="glass-panel p-6 md:p-8 rounded-3xl flex flex-col justify-between relative overflow-hidden group border-white/5 shadow-2xl transition-all duration-500 hover:border-brandSunset/30">
-                <div class="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-brandSunset via-brandSand to-transparent opacity-80"></div>
+        <!-- Premium Focus: The Unified Launch Countdown (15 June 2026) -->
+        <div class="max-w-3xl w-full mb-14">
+            <div class="glass-panel p-8 md:p-10 rounded-[2.5rem] relative overflow-hidden border-white/5 shadow-2xl transition-all duration-500 hover:border-brandSunset/20">
+                <div class="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-brandBlue via-brandSand to-brandSunset opacity-80"></div>
                 <div class="shimmer w-full h-full absolute inset-0 pointer-events-none"></div>
 
-                <div class="relative z-10">
-                    <span class="text-xs font-black tracking-[0.2em] text-brandSunset uppercase bg-brandSunset/10 px-3.5 py-1 rounded-full">FASA 1: PERSIDANGAN</span>
-                    <h3 class="text-2xl font-extrabold text-white mt-4 mb-2">Blyns Version 26 Conference</h3>
-                    <p class="text-sm text-zinc-400 mb-6 max-w-md mx-auto leading-relaxed">Kupasan eksklusif segala pembaharuan fungsi hebat dan sistem keselamatan ultra moden yang bakal mengubah landskap teknologi anda.</p>
+                <div class="relative z-10 flex flex-col items-center">
+                    <span class="text-xs font-black tracking-[0.25em] text-brandSunset uppercase bg-brandSunset/10 px-4 py-1.5 rounded-full mb-5">
+                        PELANCARAN APLIKASI WEB PENUH (FINAL OUTCOME)
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-3">
+                        Web Application Launch
+                    </h2>
+                    <p class="text-sm text-zinc-400 mb-8 max-w-xl mx-auto leading-relaxed">
+                        Detik permulaan revolusi sistem web aplikasi v26 dibuka sepenuhnya kepada umum. Teroka kecemerlangan struktur, kemantapan kelajuan, dan perlindungan privasi tersendiri.
+                    </p>
 
-                    <!-- Countdown 1 Grid -->
-                    <div class="grid grid-cols-4 gap-2 md:gap-4 max-w-sm mx-auto mb-6">
-                        <div class="bg-black/40 border border-white/5 p-3 rounded-xl flex flex-col items-center">
-                            <span id="c1-days" class="text-2xl md:text-3xl font-black text-white">00</span>
-                            <span class="text-[9px] font-bold text-zinc-500 uppercase mt-1">Hari</span>
+                    <!-- Large Single Countdown Grid -->
+                    <div class="grid grid-cols-4 gap-3 md:gap-6 w-full max-w-xl mx-auto">
+                        <div class="bg-black/50 border border-white/5 p-4 md:p-6 rounded-2xl flex flex-col items-center shadow-inner">
+                            <span id="countdown-days" class="text-4xl md:text-6xl font-black text-white tracking-tight">00</span>
+                            <span class="text-[10px] md:text-xs font-bold text-zinc-500 uppercase tracking-widest mt-2">Hari</span>
                         </div>
-                        <div class="bg-black/40 border border-white/5 p-3 rounded-xl flex flex-col items-center">
-                            <span id="c1-hours" class="text-2xl md:text-3xl font-black text-white">00</span>
-                            <span class="text-[9px] font-bold text-zinc-500 uppercase mt-1">Jam</span>
+                        <div class="bg-black/50 border border-white/5 p-4 md:p-6 rounded-2xl flex flex-col items-center shadow-inner">
+                            <span id="countdown-hours" class="text-4xl md:text-6xl font-black text-white tracking-tight">00</span>
+                            <span class="text-[10px] md:text-xs font-bold text-zinc-500 uppercase tracking-widest mt-2">Jam</span>
                         </div>
-                        <div class="bg-black/40 border border-white/5 p-3 rounded-xl flex flex-col items-center">
-                            <span id="c1-minutes" class="text-2xl md:text-3xl font-black text-white">00</span>
-                            <span class="text-[9px] font-bold text-zinc-500 uppercase mt-1">Min</span>
+                        <div class="bg-black/50 border border-white/5 p-4 md:p-6 rounded-2xl flex flex-col items-center shadow-inner">
+                            <span id="countdown-minutes" class="text-4xl md:text-6xl font-black text-white tracking-tight">00</span>
+                            <span class="text-[10px] md:text-xs font-bold text-zinc-500 uppercase tracking-widest mt-2">Minit</span>
                         </div>
-                        <div class="bg-black/40 border border-white/5 p-3 rounded-xl flex flex-col items-center">
-                            <span id="c1-seconds" class="text-2xl md:text-3xl font-black text-brandSunset">00</span>
-                            <span class="text-[9px] font-bold text-zinc-500 uppercase mt-1">Saat</span>
+                        <div class="bg-black/50 border border-white/5 p-4 md:p-6 rounded-2xl flex flex-col items-center shadow-inner relative overflow-hidden">
+                            <span id="countdown-seconds" class="text-4xl md:text-6xl font-black bg-gradient-to-b from-white to-brandSunset bg-clip-text text-transparent tracking-tight">00</span>
+                            <span class="text-[10px] md:text-xs font-bold text-zinc-500 uppercase tracking-widest mt-2">Saat</span>
                         </div>
                     </div>
-                </div>
 
-                <div class="relative z-10 border-t border-white/5 pt-4 text-[10px] md:text-xs text-zinc-400 font-medium">
-                    <i class="fa-regular fa-clock text-brandSunset mr-1.5"></i> 10 Jun 2026 (Rabu), 5:00 PM MYT (GMT+8)
-                </div>
-            </div>
-
-            <!-- COUNTDOWN 2: WEB APPLICATION FULL LAUNCH (15 June 2026) -->
-            <div class="glass-panel p-6 md:p-8 rounded-3xl flex flex-col justify-between relative overflow-hidden group border-white/5 shadow-2xl transition-all duration-500 hover:border-brandBlue/30">
-                <div class="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-brandBlue via-cyan-500 to-transparent opacity-80"></div>
-                <div class="shimmer w-full h-full absolute inset-0 pointer-events-none"></div>
-
-                <div class="relative z-10">
-                    <span class="text-xs font-black tracking-[0.2em] text-brandBlue uppercase bg-brandBlue/10 px-3.5 py-1 rounded-full">FASA 2: PELANCARAN PENUH</span>
-                    <h3 class="text-2xl font-extrabold text-white mt-4 mb-2">Web Application Full Outcome</h3>
-                    <p class="text-sm text-zinc-400 mb-6 max-w-md mx-auto leading-relaxed">Saatnya sistem web aplikasi v26 dibuka sepenuhnya kepada umum. Rasai sendiri impak dan kelajuan yang telah disempurnakan.</p>
-
-                    <!-- Countdown 2 Grid -->
-                    <div class="grid grid-cols-4 gap-2 md:gap-4 max-w-sm mx-auto mb-6">
-                        <div class="bg-black/40 border border-white/5 p-3 rounded-xl flex flex-col items-center">
-                            <span id="c2-days" class="text-2xl md:text-3xl font-black text-white">00</span>
-                            <span class="text-[9px] font-bold text-zinc-500 uppercase mt-1">Hari</span>
-                        </div>
-                        <div class="bg-black/40 border border-white/5 p-3 rounded-xl flex flex-col items-center">
-                            <span id="c2-hours" class="text-2xl md:text-3xl font-black text-white">00</span>
-                            <span class="text-[9px] font-bold text-zinc-500 uppercase mt-1">Jam</span>
-                        </div>
-                        <div class="bg-black/40 border border-white/5 p-3 rounded-xl flex flex-col items-center">
-                            <span id="c2-minutes" class="text-2xl md:text-3xl font-black text-white">00</span>
-                            <span class="text-[9px] font-bold text-zinc-500 uppercase mt-1">Min</span>
-                        </div>
-                        <div class="bg-black/40 border border-white/5 p-3 rounded-xl flex flex-col items-center">
-                            <span id="c2-seconds" class="text-2xl md:text-3xl font-black text-brandBlue">00</span>
-                            <span class="text-[9px] font-bold text-zinc-500 uppercase mt-1">Saat</span>
-                        </div>
+                    <div class="mt-8 pt-6 border-t border-white/5 w-full text-xs md:text-sm text-zinc-300 font-medium flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-clock text-brandSunset"></i>
+                        <span>15 Jun 2026 (Isnin), 5:00 PM Malaysia Time (MYT GMT +8:00)</span>
                     </div>
                 </div>
-
-                <div class="relative z-10 border-t border-white/5 pt-4 text-[10px] md:text-xs text-zinc-400 font-medium">
-                    <i class="fa-regular fa-clock text-brandBlue mr-1.5"></i> 15 Jun 2026 (Isnin), 5:00 PM MYT (GMT+8)
-                </div>
             </div>
-
         </div>
 
-        <!-- Interactive Call To Actions -->
-        <div class="flex flex-col md:flex-row items-center justify-center gap-5 max-w-4xl w-full">
-
-            <!-- YouTube Channel Link Button -->
-            <a href="https://youtube.com/@blynsmyofficial?si=KA9b5RwPvU_LlYt5" target="_blank" class="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-red-600 via-brandSunset to-red-600 hover:from-red-500 hover:to-brandSunset text-white rounded-2xl text-sm font-black transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-red-600/20 hover:scale-[1.03] active:scale-[0.98]">
-                <i class="fa-brands fa-youtube text-xl"></i>
-                <span>Lawati YouTube Rasmi</span>
-            </a>
-
+        <!-- Interactive Call To Actions (Discord and Google Calendar only) -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 max-w-2xl w-full">
+            
             <!-- Discord Community Button -->
-            <a href="https://discord.gg/2NH3Bq2F" target="_blank" class="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-discordBlurple via-brandBlue to-discordBlurple hover:from-brandBlue hover:to-discordBlurple text-white rounded-2xl text-sm font-black transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-discordBlurple/20 hover:scale-[1.03] active:scale-[0.98]">
+            <a href="https://discord.gg/2NH3Bq2F" 
+               target="_blank"
+               class="w-full sm:w-1/2 px-8 py-4.5 bg-gradient-to-r from-discordBlurple via-brandBlue to-discordBlurple hover:from-brandBlue hover:to-discordBlurple text-white rounded-2xl text-sm font-black transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-discordBlurple/20 hover:scale-[1.03] active:scale-[0.98]">
                 <i class="fa-brands fa-discord text-xl"></i>
                 <span>Blyns Development Community</span>
             </a>
 
-            <!-- Google Calendar Add Event (2 in 1 Date) -->
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Blyns+Version+26+Grand+Launch+Week&dates=20260610T090000Z/20260615T110000Z&details=Sertai+minggu+pelancaran+Blyns+v26!%0A%0A10+Jun:+Conference+Eksklusif%0A15+Jun:+Web+Application+Full+Outcome%0A%0ADetail+penuh+dikongsi+di+Youtube+Rasmi+Blyns.&location=YouTube+Live+%26+Blyns+Web+App" target="_blank" class="w-full md:w-auto px-8 py-4 bg-white/5 border border-white/10 hover:border-brandBlue/50 text-white rounded-2xl text-sm font-bold transition-all duration-300 flex items-center justify-center gap-3 hover:bg-brandBlue/10 hover:shadow-lg hover:shadow-brandBlue/15">
-                <i class="fa-brands fa-google text-brandBlue text-lg"></i>
+            <!-- Google Calendar Add Event (Final Outcome Date) -->
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Blyns+Version+26+Grand+Launch&dates=20260615T090000Z/20260615T110000Z&details=Sertai+pelancaran+penuh+sistem+aplikasi+web+Blyns+v26.+Sistem+akan+mula+beroperasi+secara+layar+diri.+Sertai+komuniti+Discord+kami+untuk+maklumat+lanjut.&location=Blyns+Web+Application" 
+               target="_blank"
+               class="w-full sm:w-1/2 px-8 py-4.5 bg-white/5 border border-white/10 hover:border-brandSunset/50 text-white rounded-2xl text-sm font-bold transition-all duration-300 flex items-center justify-center gap-3 hover:bg-brandSunset/10 hover:shadow-lg hover:shadow-brandSunset/15">
+                <i class="fa-brands fa-google text-brandSunset text-lg"></i>
                 <span>Set Temujanji Kalendar</span>
             </a>
 
@@ -388,8 +333,8 @@
             <p class="font-medium">&copy; 2026 Blyns Technologies. Hak Cipta Hadif Irsyad 2026.</p>
             <p class="text-[10px] mt-2 text-zinc-600 tracking-wider font-bold">BLYNS — HADIF IRSYAD (DEVELOPER EXECUTIVE OFFICER)</p>
         </div>
-
-        <!-- Social Elements (Strictly Twitter and Discord) -->
+        
+        <!-- Social Elements (Strictly Twitter) -->
         <div class="flex space-x-8">
             <a href="#" class="hover:text-brandSunset transition-all duration-300 hover:scale-125"><i class="fa-brands fa-x-twitter text-lg"></i></a>
         </div>
@@ -403,54 +348,36 @@
 
     <!-- Script Section -->
     <script>
-        // TARGET TIMINGS
-        // Target 1: Conference (10 June 2026 @ 5:00 PM MYT)
-        const targetDate1 = new Date("2026-06-10T17:00:00+08:00").getTime();
-        // Target 2: Web App Outcome (15 June 2026 @ 5:00 PM MYT)
-        const targetDate2 = new Date("2026-06-15T17:00:00+08:00").getTime();
+        // TARGET TIMING
+        // Target: Web App Launch (15 June 2026 @ 5:00 PM MYT)
+        const targetDate = new Date("2026-06-15T17:00:00+08:00").getTime();
 
-        function updateCountdowns() {
+        function updateCountdown() {
             const now = new Date().getTime();
+            const diff = targetDate - now;
 
-            // Countdown 1
-            const diff1 = targetDate1 - now;
-            const c1Elems = {
-                d: 'c1-days',
-                h: 'c1-hours',
-                m: 'c1-minutes',
-                s: 'c1-seconds'
-            };
-            if (diff1 <= 0) {
-                Object.values(c1Elems).forEach(id => document.getElementById(id).innerText = "00");
-            } else {
-                document.getElementById(c1Elems.d).innerText = Math.floor(diff1 / 86400000).toString().padStart(2, '0');
-                document.getElementById(c1Elems.h).innerText = Math.floor((diff1 % 86400000) / 3600000).toString().padStart(2, '0');
-                document.getElementById(c1Elems.m).innerText = Math.floor((diff1 % 3600000) / 60000).toString().padStart(2, '0');
-                document.getElementById(c1Elems.s).innerText = Math.floor((diff1 % 60000) / 1000).toString().padStart(2, '0');
-            }
+            const daysElem = document.getElementById('countdown-days');
+            const hoursElem = document.getElementById('countdown-hours');
+            const minutesElem = document.getElementById('countdown-minutes');
+            const secondsElem = document.getElementById('countdown-seconds');
 
-            // Countdown 2
-            const diff2 = targetDate2 - now;
-            const c2Elems = {
-                d: 'c2-days',
-                h: 'c2-hours',
-                m: 'c2-minutes',
-                s: 'c2-seconds'
-            };
-            if (diff2 <= 0) {
-                Object.values(c2Elems).forEach(id => document.getElementById(id).innerText = "00");
+            if (diff <= 0) {
+                daysElem.innerText = "00";
+                hoursElem.innerText = "00";
+                minutesElem.innerText = "00";
+                secondsElem.innerText = "00";
             } else {
-                document.getElementById(c2Elems.d).innerText = Math.floor(diff2 / 86400000).toString().padStart(2, '0');
-                document.getElementById(c2Elems.h).innerText = Math.floor((diff2 % 86400000) / 3600000).toString().padStart(2, '0');
-                document.getElementById(c2Elems.m).innerText = Math.floor((diff2 % 3600000) / 60000).toString().padStart(2, '0');
-                document.getElementById(c2Elems.s).innerText = Math.floor((diff2 % 60000) / 1000).toString().padStart(2, '0');
+                daysElem.innerText = Math.floor(diff / 86400000).toString().padStart(2, '0');
+                hoursElem.innerText = Math.floor((diff % 86400000) / 3600000).toString().padStart(2, '0');
+                minutesElem.innerText = Math.floor((diff % 3600000) / 60000).toString().padStart(2, '0');
+                secondsElem.innerText = Math.floor((diff % 60000) / 1000).toString().padStart(2, '0');
             }
         }
 
-        setInterval(updateCountdowns, 1000);
-        updateCountdowns();
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
 
-        // Wave Canvas Simulation
+        // Wave Canvas Simulation (Sea Blue, Sand Yellow, Sunset Orange)
         const canvas = document.getElementById('waveCanvas');
         const ctx = canvas.getContext('2d');
         let width = canvas.width = window.innerWidth;
@@ -458,36 +385,13 @@
         let mouseX = width / 2;
         let glowMultiplier = 1;
 
-        window.addEventListener('resize', () => {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        });
+        window.addEventListener('resize', () => { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; });
         window.addEventListener('mousemove', (e) => mouseX = e.clientX);
 
-        const waves = [{
-                y: 0.72,
-                length: 0.003,
-                amplitude: 50,
-                speed: 0.012,
-                color: 'rgba(2, 132, 199, 0.1)',
-                phase: 0
-            },
-            {
-                y: 0.76,
-                length: 0.002,
-                amplitude: 65,
-                speed: 0.008,
-                color: 'rgba(234, 179, 8, 0.07)',
-                phase: 2
-            },
-            {
-                y: 0.70,
-                length: 0.004,
-                amplitude: 40,
-                speed: 0.015,
-                color: 'rgba(249, 115, 22, 0.12)',
-                phase: 4
-            }
+        const waves = [
+            { y: 0.72, length: 0.003, amplitude: 50, speed: 0.012, color: 'rgba(2, 132, 199, 0.1)', phase: 0 },
+            { y: 0.76, length: 0.002, amplitude: 65, speed: 0.008, color: 'rgba(234, 179, 8, 0.07)', phase: 2 },
+            { y: 0.70, length: 0.004, amplitude: 40, speed: 0.015, color: 'rgba(249, 115, 22, 0.12)', phase: 4 }
         ];
 
         function animate() {
@@ -501,12 +405,9 @@
                     const y = (height * w.y) + Math.sin(x * w.length + w.phase) * amp;
                     x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
                 }
-                ctx.lineTo(width, height);
-                ctx.lineTo(0, height);
-                ctx.closePath();
-                ctx.fillStyle = w.color;
-                ctx.fill();
-
+                ctx.lineTo(width, height); ctx.lineTo(0, height); ctx.closePath();
+                ctx.fillStyle = w.color; ctx.fill();
+                
                 ctx.beginPath();
                 for (let x = 0; x < width; x++) {
                     const dist = Math.abs(x - mouseX);
@@ -515,9 +416,7 @@
                     const y = (height * w.y) + Math.sin(x * w.length + w.phase) * amp;
                     x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
                 }
-                ctx.strokeStyle = w.color.replace('0.1', '0.45');
-                ctx.lineWidth = 2.2;
-                ctx.stroke();
+                ctx.strokeStyle = w.color.replace('0.1', '0.45'); ctx.lineWidth = 2.2; ctx.stroke();
                 w.phase += w.speed;
             });
             requestAnimationFrame(animate);
@@ -531,5 +430,4 @@
         animate();
     </script>
 </body>
-
 </html>
